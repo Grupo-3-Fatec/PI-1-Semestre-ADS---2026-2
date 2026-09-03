@@ -75,5 +75,46 @@
             <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
             <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
         </tr>
+         <tr>
+            <th>Lucas Nascimento Fernandes</th>
+            <th>Scrum Team</th>
+            <th><a href='https://github.com/Nascife'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='https://www.linkedin.com/in/lucas-nascimento-fernandes-0a61b5358/'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr> <tr>
+            <th>*NOME*</th>
+            <th>*FUNÇÃO*</th>
+            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr> <tr>
+            <th>*NOME*</th>
+            <th>*FUNÇÃO*</th>
+            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr> <tr>
+            <th>*NOME*</th>
+            <th>*FUNÇÃO*</th>
+            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr> <tr>
+            <th>*NOME*</th>
+            <th>*FUNÇÃO*</th>
+            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr> <tr>
+            <th>*NOME*</th>
+            <th>*FUNÇÃO*</th>
+            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr> <tr>
+            <th>*NOME*</th>
+            <th>*FUNÇÃO*</th>
+            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr> <tr>
+            <th>*NOME*</th>
+            <th>*FUNÇÃO*</th>
+            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr>
     </table>
 </div>
