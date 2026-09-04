@@ -37,7 +37,7 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 |5|Média|Como gerente, quero verificar quais contratos possuem gravação com cliente, foto selfie com RG e capa do contrato, para poder integrar contrato no CRM.|TBD|TBD|
 |6|Média|Como gerente, quero poder conversar com o bot, para aumentar a acessibilidade e eficiência das operações.|TBD|TBD|
 |7|Baixa|Como gerente, quero saber quais atendentes bateram a meta desse mês, para gerenciamento eficiente da equipe.|TBD|TBD|
-|8|Baixa|Como gerente, quero que contratos que passaram de 7 dias com pendência de documentos sejam cancelados.|TBD|TBD|
+|8|Baixa|Como gerente, quero que contratos que passaram de 7 dias com pendência de documentos sejam cancelados, para que o time não perca tempo cobrando contratos obsoletos.|TBD|TBD|
 ---
 ## DoR - Definition of Ready <a id='ready'></a>
 >abc
