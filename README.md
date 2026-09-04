@@ -1,6 +1,6 @@
-# API 1° Semestrer - ADS 2026 {#cabecalho}
+# API 1° Semestre - ADS 2026 {#cabecalho}
 ---
-# $(Nome Projeto) - Reboot
+# reBOT - Reboot
 ---
 # Haverá Logo para o projeto? - 📍
 # <p style="text-align: center;"> Reboot </p>
@@ -20,16 +20,13 @@
 >Video do Projeto: 
 >abc
 >abc
----
+
 ## Desafio <a id='desafio'></a>
->abc
->abc
->abc
+O desafio dessa A.P.I. consiste em utilizar a linguagem Python para extrair insights a partir de dados em uma planilha e integrar isso em um chatbot do telegram. Esse bot deve ser capaz de seguir comandos, conversar naturalmente com o usuário e possuir voz (assistente virtual com voz). Não foi permitido a utilização de nenhuma API externa (e.g. ChatGPT API).
+
 ## Solução <a id='solucao'></a>
->abc
->abc
->abc
----
+O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilha, organizá-las em tabelas e realizar análises rápidas essenciais para o negócio. Dessa forma, o reBOT é capaz de eficientemente criar relatórios e automatizar processos de análise de dados, facilitando o trabalho e aumentando a produtividade da empresa.
+
 ## Backlog do Produto <a id='backlog'></a>
 | RANK | PRIORIDADE | USER STORY | STORY POINTS | SPRINT |
 | :--: | :--------: | :--------: | :----------: | :----: |
@@ -88,9 +85,9 @@
             <th><a href='https://github.com/Nascife'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
             <th><a href='https://www.linkedin.com/in/lucas-nascimento-fernandes-0a61b5358/'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
         </tr> <tr>
-            <th>*NOME*</th>
-            <th>*FUNÇÃO*</th>
-            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th>Rodrigo Yuuta Imayoshi Nishimori</th>
+            <th>Product Owner</th>
+            <th><a href='https://github.com/Yuuta-Nishimori'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
             <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
         </tr> <tr>
             <th>*NOME*</th>
