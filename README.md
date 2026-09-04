@@ -33,7 +33,14 @@
 ## Backlog do Produto <a id='backlog'></a>
 | RANK | PRIORIDADE | USER STORY | STORY POINTS | SPRINT |
 | :--: | :--------: | :--------: | :----------: | :----: |
-|1|Alta|Como gerente quero um chatbot no telegram que leia e interprete dados na planilha, para análise dos dados.|7|1|
+|1|Alta|Como gerente quero um chatbot no telegram que leia e interprete dados na planilha, para poder tomar as medidas necessárias de forma ágil.|TBD|TBD|
+|2|Alta|Como gerente, quero que o chatbot responda mensagens, para que possa oferecer insights mais específicos.|TBD|TBD|
+|3|Alta|Como gerente, quero que o bot crie uma tabela baseada nos items solicitados, para delimitar o escopo da análise.|TBD|TBD|
+|4|Média|Como gerente quero saber quais contratos estão dentro da taxa correta, para sabermos quais contratos receberemos comissão.|TBD|TBD|
+|5|Média|Como gerente, quero verificar quais contratos possuem gravação com cliente, foto selfie com RG e capa do contrato, para poder integrar contrato no CRM.|TBD|TBD|
+|6|Média|Como gerente, quero poder conversar com o bot, para aumentar a acessibilidade e eficiência das operações.|TBD|TBD|
+|7|Baixa|Como gerente, quero saber quais atendentes bateram a meta desse mês, para gerenciamento eficiente da equipe.|TBD|TBD|
+|8|Baixa|Como gerente, quero que contratos que passaram de 7 dias com pendência de documentos sejam cancelados.|TBD|TBD|
 ---
 ## DoR - Definition of Ready <a id='ready'></a>
 >abc
