@@ -40,13 +40,18 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 |8|Baixa|Como gerente, quero que contratos que passaram de 7 dias com pendência de documentos sejam cancelados, para que o time não perca tempo cobrando contratos obsoletos.|TBD|TBD|
 ---
 ## DoR - Definition of Ready <a id='ready'></a>
->abc
->abc
->abc
+- **User story adequada:** Segue o formato "Como [tipo de usuário], quero [funcionalidade], para que [benefício]".
+- **Estimativa realizada:** o time avaliou o esforço (ex.: em story points) e está dentro do limite acordado para uma Sprint.
+- **Dependências resolvidas:**  Nenhum bloqueio externo impede o início do trabalho.
+- **Valor de negócio:** O time entende o "porquê" e a prioridade do item.
+- **Critérios de Aceitação claros:** A equipe sabe exatamente o que precisa ser construído e como validar.
+---
 ## DoD - Definition of Done <a id='done'></a>
->abc
->abc
->abc
+- **Todos os Critérios de Aceitação foram atendidos:** A funcionalidade comporta-se exatamente como o esperado.
+- **Código revisado e aprovado:** Pelo menos um colega de time revisou e aprovou o pull request.
+- **Código commitado no Git:** Integrado à branch principal via Pull Request.
+- **Código segue padrões e convenções:** Linter(Pylint) e formatação ok.
+- **Aprovado pelo PO:** O PO validou a entrega e concorda que está apropriada para implementação.
 ---
 ## Cronograma de Sprints <a id='sprint'></a>
 >abc
