@@ -30,14 +30,14 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 ## Backlog do Produto <a id='backlog'></a>
 | RANK | PRIORIDADE | USER STORY | STORY POINTS | SPRINT |
 | :--: | :--------: | :--------: | :----------: | :----: |
-|1|Alta|Como gerente quero um chatbot no telegram que leia e interprete dados na planilha, para poder tomar as medidas necessárias de forma ágil.|TBD|TBD|
-|2|Alta|Como gerente, quero que o chatbot responda mensagens, para que possa oferecer insights mais específicos.|TBD|TBD|
-|3|Alta|Como gerente, quero que o bot crie uma tabela baseada nos items solicitados, para delimitar o escopo da análise.|TBD|TBD|
-|4|Média|Como gerente quero saber quais contratos estão dentro da taxa correta, para sabermos quais contratos receberemos comissão.|TBD|TBD|
-|5|Média|Como gerente, quero verificar quais contratos possuem gravação com cliente, foto selfie com RG e capa do contrato, para poder integrar contrato no CRM.|TBD|TBD|
-|6|Média|Como gerente, quero poder conversar com o bot, para aumentar a acessibilidade e eficiência das operações.|TBD|TBD|
-|7|Baixa|Como gerente, quero saber quais atendentes bateram a meta desse mês, para gerenciamento eficiente da equipe.|TBD|TBD|
-|8|Baixa|Como gerente, quero que contratos que passaram de 7 dias com pendência de documentos sejam cancelados, para que o time não perca tempo cobrando contratos obsoletos.|TBD|TBD|
+|1|Alta|Como gerente quero um chatbot no telegram que leia e interprete dados na planilha, para poder tomar as medidas necessárias de forma ágil.|13|TBD|
+|2|Alta|Como gerente, quero que o chatbot responda mensagens, para que possa oferecer insights mais específicos.|20|TBD|
+|3|Alta|Como gerente, quero que o bot crie uma tabela baseada nos items solicitados, para delimitar o escopo da análise.|17|TBD|
+|4|Média|Como gerente quero saber quais contratos estão dentro da taxa correta, para sabermos quais contratos receberemos comissão.|20|TBD|
+|5|Média|Como gerente, quero verificar quais contratos possuem gravação com cliente, foto selfie com RG e capa do contrato, para poder integrar contrato no CRM.|20|TBD|
+|6|Média|Como gerente, quero poder conversar com o bot, para aumentar a acessibilidade e eficiência das operações.|89|TBD|
+|7|Baixa|Como gerente, quero saber quais atendentes bateram a meta desse mês, para gerenciamento eficiente da equipe.|13|TBD|
+|8|Baixa|Como gerente, quero que contratos que passaram de 7 dias com pendência de documentos sejam cancelados, para que o time não perca tempo cobrando contratos obsoletos.|17|TBD|
 ---
 ## DoR - Definition of Ready <a id='ready'></a>
 - **User story adequada:** Segue o formato "Como [tipo de usuário], quero [funcionalidade], para que [benefício]".
