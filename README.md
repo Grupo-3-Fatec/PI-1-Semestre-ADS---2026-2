@@ -1,4 +1,4 @@
-# API 1° Semestre - ADS 2026 {#cabecalho}
+# API 1° Semestre - ADS 2026
 ---
 # reBOT - Reboot
 ---
@@ -15,11 +15,12 @@
 <a href='#tech' style="text-decoration: underline">Tecnologias </a>|
 <a href='#user' style="text-decoration: underline">Manual do Usuário </a>|
 <a href='#team' style="text-decoration: underline">Equipe </a>|
+</h5>
 
 >Status do Projeto: 
 >Video do Projeto: 
->abc
->abc
+>&nbsp;
+>&nbsp;
 
 ## Desafio <a id='desafio'></a>
 O desafio dessa A.P.I. consiste em utilizar a linguagem Python para extrair insights a partir de dados em uma planilha e integrar isso em um chatbot do telegram. Esse bot deve ser capaz de seguir comandos, conversar naturalmente com o usuário e possuir voz (assistente virtual com voz). Não foi permitido a utilização de nenhuma API externa (e.g. ChatGPT API).
@@ -54,19 +55,19 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 - **Aprovado pelo PO:** O PO validou a entrega e concorda que está apropriada para implementação.
 ---
 ## Cronograma de Sprints <a id='sprint'></a>
->abc
->abc
->abc
+>&nbsp;
+>&nbsp;
+>&nbsp;
 ---
 ## Technologias Utilizadas <a id='tech'></a>
->abc
->abc
->abc
+>&nbsp;
+>&nbsp;
+>&nbsp;
 ---
 ## Manual do Usuário <a id='user'></a>
->abc
->abc
->abc
+>&nbsp;
+>&nbsp;
+>&nbsp;
 ---
 ## Equipe <a id='team'></a>
 
@@ -79,50 +80,57 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
             <th>LINKEDIN</th>
         </tr>
         <tr>
-            <th>Lucas Nanni de Oliveira Abruceze</th>
-            <th>Scrum Team</th>
-            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
-            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
-        </tr>
-         <tr>
-            <th>Lucas Nascimento Fernandes</th>
-            <th>Scrum Team</th>
-            <th><a href='https://github.com/Nascife'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
-            <th><a href='https://www.linkedin.com/in/lucas-nascimento-fernandes-0a61b5358/'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
-        </tr> <tr>
             <th>Rodrigo Yuuta Imayoshi Nishimori</th>
             <th>Product Owner</th>
             <th><a href='https://github.com/Yuuta-Nishimori'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
             <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
-        </tr> <tr>
-            <th>Vinícius de Souza Moura Moraes</th>
-            <th>Scrum Team</th>
-            <th><a href='https://github.com/vinismm2007'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
-            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
-        </tr> <tr>
+        </tr>
+        <tr>
+            <th>Vitor Humberto Fontoura Marchiori</th>
+            <th>Scrum Master</th>
+            <th><a href='https://github.com/FontMarchVitor'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='https://www.linkedin.com/in/vitor-h-19181a244/'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr>
+        <tr>
             <th>Gabriel de Abreu Thomaz</th>
             <th>Scrum Team</th>
             <th><a href='https://github.com/GabrielThomaz404'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
             <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
-        </tr> <tr>
-            <th>*NOME*</th>
-            <th>*FUNÇÃO*</th>
+        </tr>
+        <tr>
+            <th>Guilherme Ricardo de Paiva</th>
+            <th>Scrum Team</th>
+            <th><a href='https://github.com/guilherme-paiva2007'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='https://www.linkedin.com/in/guilherme-paiva-b2a722332/'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr>
+        <tr>
+            <th>Gustavo Oliveira Gonçalves</th>
+            <th>Scrum Team</th>
             <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='https://github.com/gustavoo-gon'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr>
+        <tr>
+            <th>José Roberto dos Santos Neto</th>
+            <th>Scrum Team</th>
+            <th><a href='https://github.com/joseRNs'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
             <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
-        </tr> <tr>
-            <th>*NOME*</th>
-            <th>*FUNÇÃO*</th>
-            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+        </tr>
+        <tr>
+            <th>Lucas Nanni de Oliveira Abruceze</th>
+            <th>Scrum Team</th>
+            <th><a href='https://github.com/LucasNanni05'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
             <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
-        </tr> <tr>
-            <th>*NOME*</th>
-            <th>*FUNÇÃO*</th>
-            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
-            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
-        </tr> <tr>
-            <th>*NOME*</th>
-            <th>*FUNÇÃO*</th>
-            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+        </tr>
+        <tr>
+            <th>Lucas Nascimento Fernandes</th>
+            <th>Scrum Team</th>
+            <th><a href='https://github.com/Nascife'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href='https://www.linkedin.com/in/lucas-nascimento-fernandes-0a61b5358/'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+        </tr>
+        <tr>
+            <th>Vinícius de Souza Moura Moraes</th>
+            <th>Scrum Team</th>
+            <th><a href='https://github.com/vinismm2007'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
             <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
         </tr>
     </table>
