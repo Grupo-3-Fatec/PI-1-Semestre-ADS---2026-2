@@ -1,0 +1,265 @@
+# PANDAS — GUIA RÁPIDO DE PRINCIPAIS OPERAÇÕES
+
+## IMPORTAÇÃO
+
+import pandas as pd
+Importa a biblioteca pandas usando o apelido convencional "pd".
+
+pd.read_csv("arquivo.csv")
+Lê um arquivo CSV e retorna um DataFrame.
+
+pd.read_excel("arquivo.xlsx")
+Lê uma planilha Excel e retorna um DataFrame.
+
+## CRIAÇÃO DE DATAFRAME
+
+pd.DataFrame(dados)
+Cria um DataFrame a partir de dados que já estão no Python
+(dicionário, lista de listas etc.).
+
+Exemplo:
+dados = {
+"nome": ["João", "Maria"],
+"idade": [20, 22]
+}
+df = pd.DataFrame(dados)
+
+## INSPEÇÃO
+
+df.head()
+Primeiras 5 linhas.
+
+df.head(10)
+Primeiras 10 linhas.
+
+df.tail()
+Últimas 5 linhas.
+
+df.shape
+Tupla (linhas, colunas).
+
+df.columns
+Nomes das colunas.
+
+df.index
+Índices das linhas.
+
+df.info()
+Informações sobre colunas, tipos e valores não nulos.
+
+df.describe()
+Estatísticas numéricas básicas.
+
+## SELEÇÃO
+
+df["nome"]
+Seleciona uma coluna. Retorna uma Series.
+
+df[["nome", "idade"]]
+Seleciona várias colunas. Retorna um DataFrame.
+
+df.iloc[0]
+Seleciona a linha pela posição (0 = primeira linha).
+
+df.iloc[0:3]
+Seleciona linhas pelas posições 0, 1 e 2.
+
+df.loc[0]
+Seleciona a linha cujo índice é 0.
+
+df.loc[df["idade"] > 20]
+Seleciona linhas usando uma condição.
+
+## FILTROS
+
+df[df["idade"] > 20]
+Linhas com idade maior que 20.
+
+df[df["curso"] == "ADS"]
+Linhas cujo curso é ADS.
+
+df[(df["idade"] > 20) & (df["curso"] == "ADS")]
+Duas condições usando AND.
+
+df[(df["idade"] > 20) | (df["curso"] == "ADS")]
+Duas condições usando OR.
+
+Observação:
+No pandas, use & para AND e | para OR entre condições.
+Coloque cada condição entre parênteses.
+
+## CRIAR / ALTERAR COLUNAS
+
+df["aprovado"] = df["nota"] >= 6
+Cria a coluna "aprovado" se ela não existir.
+Se já existir, substitui seus valores.
+
+df["total"] = df["preco"] * df["quantidade"]
+Cria "total" calculando linha por linha:
+preco da linha × quantidade da linha.
+
+df["nome_completo"] = df["nome"] + " " + df["sobrenome"]
+Cria uma coluna a partir de outras colunas.
+
+del df["coluna"]
+Remove uma coluna.
+
+## ORDENAÇÃO
+
+df.sort_values("nota")
+Ordena pela coluna "nota" em ordem crescente.
+
+df.sort_values("nota", ascending=False)
+Ordena pela coluna "nota" em ordem decrescente.
+
+df.sort_index()
+Ordena pelo índice.
+
+## ESTATÍSTICAS
+
+df["nota"].mean()
+Média.
+
+df["nota"].sum()
+Soma.
+
+df["nota"].min()
+Menor valor.
+
+df["nota"].max()
+Maior valor.
+
+df["nota"].count()
+Quantidade de valores não nulos.
+
+df["curso"].value_counts()
+Conta quantas vezes cada valor aparece.
+
+## AGRUPAMENTO
+
+df.groupby("curso")["nota"].mean()
+Agrupa por curso e calcula a média da nota de cada curso.
+
+df.groupby("cidade")["total"].sum()
+Agrupa por cidade e soma o total de cada cidade.
+
+df.groupby("curso").size()
+Conta quantas linhas existem em cada grupo.
+
+## VALORES AUSENTES (NaN)
+
+df.isna()
+Indica quais valores são ausentes.
+
+df.isna().sum()
+Conta valores ausentes por coluna.
+
+df.dropna()
+Remove linhas que possuem valores ausentes.
+
+df.fillna(0)
+Substitui valores ausentes por 0.
+
+df["idade"].fillna(df["idade"].mean())
+Substitui idades ausentes pela média.
+
+## DUPLICATAS
+
+df.duplicated()
+Indica quais linhas são duplicadas.
+
+df.drop_duplicates()
+Remove linhas duplicadas.
+
+## ALTERAÇÃO DE NOMES
+
+df.rename(columns={"nome": "name"})
+Renomeia uma coluna.
+
+df.columns = ["nome", "idade", "curso"]
+Substitui todos os nomes das colunas.
+
+## TIPOS
+
+df.dtypes
+Mostra o tipo de cada coluna.
+
+df["idade"].astype(int)
+Converte uma coluna para inteiro.
+
+df["preco"].astype(float)
+Converte uma coluna para número decimal.
+
+## STRINGS
+
+df["nome"].str.upper()
+Converte textos para maiúsculas.
+
+df["nome"].str.lower()
+Converte textos para minúsculas.
+
+df["nome"].str.contains("ana")
+Verifica se cada texto contém "ana".
+
+## JUNTAR DATAFRAMES
+
+pd.concat([df1, df2])
+Junta DataFrames, normalmente empilhando linhas.
+
+pd.merge(df1, df2, on="id")
+Faz uma junção entre DataFrames usando uma coluna em comum.
+É parecido com JOIN em SQL.
+
+## EXPORTAÇÃO
+
+df.to_csv("resultado.csv", index=False)
+Salva o DataFrame em CSV.
+index=False evita salvar o índice como uma coluna adicional.
+
+df.to_excel("resultado.xlsx", index=False)
+Salva em Excel.
+
+## MODELO MENTAL
+
+Pandas trabalha principalmente com:
+
+DataFrame
+Tabela inteira.
+
+Series
+Uma coluna (ou uma sequência de valores).
+
+Índice
+Identificador/posição das linhas.
+
+Exemplo:
+
+```
+df
+   nome    nota
+0  João    8.5
+1  Maria   9.2
+2  Pedro   5.0
+
+df["nota"]
+    ↓
+Series:
+0    8.5
+1    9.2
+2    5.0
+
+df["nota"] >= 6
+    ↓
+Series booleana:
+0     True
+1     True
+2    False
+
+df["aprovado"] = df["nota"] >= 6
+    ↓
+Cria a coluna:
+   nome    nota   aprovado
+0  João    8.5    True
+1  Maria   9.2    True
+2  Pedro   5.0    False
+```
