@@ -55,9 +55,9 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 - **Aprovado pelo PO:** O PO validou a entrega e concorda que está apropriada para implementação.
 ---
 ## Cronograma de Sprints <a id='sprint'></a>
->&nbsp;
->&nbsp;
->&nbsp;
+- **07/09 à 27/09**: Sprint 1
+- **05/10 à 25/10**: Sprint 2
+- **02/11 à 22/11**: Sprint 3
 ---
 ## Technologias Utilizadas <a id='tech'></a>
 >&nbsp;
