@@ -3,6 +3,8 @@ import pandas as pd
 data = pd.read_csv('data.csv', sep=';')
 df_docs = pd.DataFrame(data)
 
+#==========VER CONTRATOS QUE NÃO POSSUEM GRAVAÇÃO==========
+
 def sem_gravacao():
     """Função que retorna um dataframe com os clientes
     que não tem gravação com o documento"""
@@ -16,8 +18,10 @@ def sem_gravacao():
     return filtrado
 
 #df_docs.loc <- peço para o dataframe selecionar e indexar as colunas que eu escolher
-#[filtro, [colunas]] <- o "filtro" é a condição que eu criei, o dataframe ver as linhas que atendem a condição
-#[filtro, [colunas]] <- o "colunas" são as colunas que vai ter no dataframe e vão passar pela condição
+#[filtro, []] <- "filtro" é a condição, o dataframe ver as linhas que atendem a condição
+#[ , [colunas]] <- "colunas" são as colunas que vai ter no dataframe e vão passar pela condição
+
+#==========VER CONTRATOS QUE NÃO POSSUEM FOTO/GRAVAÇÃO==========
 
 def sem_documento():
     """Função que retorna um dataframe com os clientes
@@ -30,14 +34,15 @@ def sem_documento():
     filtrado = filtrado.to_string()
     return filtrado
 
+#==========VER CONTRATOS QUE POSSUEM FOTO/GRAVAÇÃO==========
+
 def contrato_elegivel():
     """Função que retorna em um dataframe todos os clientes
     que não estão em falta com entrega de documentos"""
 
     filtro = (df_docs['PossuiGravacao'] == 'SIM') | (df_docs['PossuiFoto'] == 'SIM')
 #
-    filtrado = df_docs[filtro, ['Clientes', 'NumeroProposta', 'PossuiGravacao', 'PossuiFoto']]
-#
+    filtrado = df_docs.loc[filtro, ['Cliente', 'NumeroProposta', 'PossuiGravacao', 'PossuiFoto']]
     filtrado = filtrado.to_string()
     return filtrado
 
