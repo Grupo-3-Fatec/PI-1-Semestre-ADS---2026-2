@@ -1,1 +1,21 @@
+import pandas as pd
+data = pd.read_csv('data.csv', sep=';')
+df_docs = pd.DataFrame(data)
 
+def não_elegivel():
+    filtro = (df_docs['PossuiGravacao'] == 'NAO') | (df_docs['PossuiFoto'] == 'NAO')
+
+#Crio uma condição com o pandas, onde ele vê se aquela linha da coluna tem o valor que eu pedi
+# filtro  <-  armazena a condição dentro de uma variavel
+# ()  <-  oque esta dentro se torna uma condição,
+# |  <-  equivalente ao "OR" do python
+    
+    filtrado = df_docs.loc[filtro, ['Cliente', 'NumeroProposta', 'PossuiGravacao']].to_string()
+    return filtrado
+
+#df_docs.loc <- peço para o dataframe selecionar e indexar as colunas que eu escolher
+#[filtro, [colunas]] <- o "filtro" é a condição que eu criei, o dataframe ver as linhas que atendem a condição
+#[filtro, [colunas]] <- o "colunas" são as colunas que vai ter no dataframe e vão passar pela condição
+
+dado_filtrado = não_elegivel()
+print(dado_filtrado)
