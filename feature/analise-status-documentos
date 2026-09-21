@@ -44,4 +44,3 @@ def contrato_elegivel():
 print(sem_documento())
 print(sem_gravacao())
 print(contrato_elegivel())
-
