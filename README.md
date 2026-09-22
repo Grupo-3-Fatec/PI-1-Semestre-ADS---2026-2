@@ -38,7 +38,8 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 |5|Média|Como gerente, quero que o chatbot responda mensagens, para que possa oferecer insights mais específicos.|20|2|
 |6|Média|Como gerente quero saber quais contratos estão dentro da taxa correta, para sabermos quais contratos receberemos comissão.|20|2|
 |7|Média|Como gerente, quero poder conversar com o bot, para aumentar a acessibilidade e eficiência das operações.|89|2|
-|8|Baixa|Como gerente, quero que contratos que passaram de 7 dias com pendência de documentos sejam cancelados, para que o time não perca tempo cobrando contratos obsoletos.|17|TBD|
+|8|Baixa|Como gerente, quero que contratos que passaram de 7 dias com pendência de documentos sejam cancelados, para que o time não perca tempo cobrando contratos obsoletos.|17|3|
+|9|Baixa|Como gerente, quero que o bot reconheça fala e execute comandos falados, para aumentar as formas de realizar operações|17|3|
 ---
 ## DoR - Definition of Ready <a id='ready'></a>
 - **User story adequada:** Segue o formato "Como [tipo de usuário], quero [funcionalidade], para que [benefício]".
