@@ -45,7 +45,3 @@ def contrato_elegivel():
     filtrado = df_docs.loc[filtro, ['Cliente', 'NumeroProposta', 'PossuiGravacao', 'PossuiFoto']]
     filtrado = filtrado.to_string()
     return filtrado
-
-print(sem_documento())
-print(sem_gravacao())
-print(contrato_elegivel())
