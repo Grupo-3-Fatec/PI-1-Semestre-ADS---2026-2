@@ -1,0 +1,54 @@
+Alguns critérios e regras a respeito do empréstimo consignado:
+
+Regras de contratos e comissionamento:
+
+A meta do mês é sempre feita em cima da portabilidade e de contratos novos/refinanciamentos de forma diferente:
+
+PORT = PORTABILIDADE
+MARGEM = CONTRATOS NOVOS
+PORTABILIDADE SEM REFIN DA PORTABILIDADE = CONTRATO NÃO ELEGÍVEL PRA COMISSIONAMENTO
+
+
+Portabilidade:
+
+A meta da portabilidade geralmente é maior por que o comissionamento é menor pra loja.
+A meta da portabilidade é calculada em cima do VALOR DE CONTRATO das propostas do tipo REFIN DA PORTABILIDADE
+(os valores de contrato da portabilidade pura não são contados)
+Geralmente todo contrato de portabilidade vai ter seu contrato de refin da port. Se não houver, a atendente não ganha
+comissão em cima desse contrato.
+Todo contrato tem um valor de parcela e geralmente por essa parcela e o numero do contrato nos identificamos o contrato.
+Pra sabermos qual portabilidade é de qual refin é necessário verificar os valores da parcela iguais:
+
+refin da portabilidade de parcela 90,00 pertence a portabilidade de parcela 90,00
+Uma portabilidade e seu refin são praticamente o mesmo contrato e ambos serão considerados apenas como um nas regras de auditoria.
+
+OBS: é de extrema importância diferenciar o REFIN DA PORTABILIDADE com qualquer outro REFIN que possa existir.
+pode ter REFIN NORMAL que é apenas o refinanciamento de algum contrato, sem a necessidade da portabilidade. Esse tipo
+De contrato entra junto com os de tipo MARGEM(contrato novo)
+
+
+
+Margem (Contrato Novo) / Refin Normal:
+
+A meta da margem costuma ser menor que a meta da portabilidade
+A meta da margem é menor que da portabilidade e é calculada em cima do VALOR DE TROCO do contrato.
+
+
+Regras de auditoria:
+
+Todo contrato precisa necessariamente de Foto, gravação
+
+Se não tiver como foto e gravação o contrato não pode estar integrado no sistema, caso possua um INTEGRADO e não elegível na auditoria, o contrato possui PENDENCIA.
+(notas do editor, no caso eu LUCAS F, acabei de criar essa regra pra ser utilizável na coluna POSSUI PENDENCIA, precisamos verificar na planilha pra deixar com essa regra)
+
+Status e dados importantes:
+
+AGUARDANDO ORG: em andamento no banco, por enquanto tudo certo!
+SALDO PAGO: o banco DIGITADO já pagou o BANCO PORTADO. quando uma portabilidade está assim, o contrato tem grande chance de dar certo!
+INTEGRADO: Contrato finalizado e pago pro cliente(no caso da portabilidade pura, integrado significa que já portou mas não necessariamente já pagou pro cliente, o refin
+da port ainda precisa ser integrado)
+
+
+por enquanto é isso. se existir mais coisa vou atualizando
+
+possíveis duvidas e comentários são super bem vindos e devem ser feitos!
