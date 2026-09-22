@@ -56,7 +56,7 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 - **Aprovado pelo PO:** O PO validou a entrega e concorda que está apropriada para implementação.
 ---
 ## Cronograma de Sprints <a id='sprint'></a>
-- **07/09 à 27/09**: [Sprint 1](./https://github.com/Grupo-3-Fatec/PI-1-Semestre-ADS---2026-2/blob/main/docs/sprint_1/Readme.md)
+- **07/09 à 27/09**: [Sprint 1](./docs/sprint_1/Readme.md)
 - **05/10 à 25/10**: Sprint 2
 - **02/11 à 22/11**: Sprint 3
 ---
