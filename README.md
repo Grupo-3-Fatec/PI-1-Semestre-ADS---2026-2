@@ -95,7 +95,7 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
             <th>Gabriel de Abreu Thomaz</th>
             <th>Scrum Team</th>
             <th><a href='https://github.com/GabrielThomaz404'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
-            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+            <th><a href='https://www.linkedin.com/in/gabriel-thomaz-430638439?utm_source=share_via&utm_content=profile&utm_medium=member_android'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
         </tr>
         <tr>
             <th>Guilherme Ricardo de Paiva</th>
@@ -119,7 +119,7 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
             <th>Lucas Nanni de Oliveira Abruceze</th>
             <th>Scrum Team</th>
             <th><a href='https://github.com/LucasNanni05'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
-            <th><a href='https://www.linkedin.com/in/gabriel-thomaz-430638439?utm_source=share_via&utm_content=profile&utm_medium=member_android'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
         </tr>
         <tr>
             <th>Lucas Nascimento Fernandes</th>
