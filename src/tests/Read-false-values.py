@@ -1,6 +1,6 @@
 #Teste com dados ficticios
-#A função deve olhar ados de uma tabela e verificar se são veraeiros ou falsos
-#Se qualquer um doos daos forem falsos, a informação é devolvida a quem chamou
+#A função deve olhar dados de uma tabela e verificar se são veraeiros ou falsos
+#Se qualquer um doos dados forem falsos, a informação é devolvida a quem chamou
 
 lista_clientes = [
 {"cliente":"Julia", "tem_gravação":"True", "tem_foto":"False"},
