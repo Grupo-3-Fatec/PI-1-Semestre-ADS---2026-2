@@ -39,7 +39,7 @@ def salvar_dataframe_csv(df_tratada, nome_arquivo):
 # Teste local - Quando a função for importada, e caso o tete estiver ativo. ele nao vai ser executado
 # Ele vai ser executado apenas se o arquivo for executado diretamente (como ao apertar F5 ou rodar pelo terminal).
 # Teste local com um DataFrame mais robusto:
-#if __name__ == "__main__":
+if __name__ == "__main__":
     dados_teste = pd.DataFrame({
         'Atendente': ['ALINE', 'CARLOS', 'BEATRIZ', 'DANIEL', 'ALINE', 'CARLOS', 'BEATRIZ'],
         'Região': ['Norte', 'Sul', 'Leste', 'Oeste', 'Sul', 'Norte', 'Oeste'],
