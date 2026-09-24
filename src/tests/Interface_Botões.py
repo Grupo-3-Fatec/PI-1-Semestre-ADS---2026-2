@@ -16,12 +16,16 @@ from telegram.ext import (
 # CONFIG
 # =========================
 
-TOKEN = "8273122640:AAEYaoFptOqZZsGoKM6TeLoOJp5MHS1xAUY"
+TOKEN = "Insira o token"
 
 
 # =========================
 # START
 # =========================
+
+
+#assim que da o comando /start no telegram
+#o telegram envia uma mensagem junto com os botoes clicaveis
 
 async def start(
     update: Update,
@@ -64,6 +68,9 @@ async def start(
 
     teclado = InlineKeyboardMarkup(botoes)
 
+#aqui esta a mensagem inicial que o bot vai enviar
+#que contem o que contem a ação de cada botao assim que o apertalo
+
     await update.message.reply_text(
         "Olá! Seja bem-vindo ao nosso atendimento.\n"
         "Para começar, selecione uma das opções abaixo:\n \n"
@@ -90,6 +97,9 @@ async def start(
 # BOTÕES
 # =========================
 
+
+#aqui seria para o codigo identificar qual botao foi pressionado
+
 async def botao_clicado(
     update: Update,
     context: ContextTypes.DEFAULT_TYPE
@@ -103,6 +113,8 @@ async def botao_clicado(
 # =========================
 # INICIAR BOT
 # =========================
+
+#aqui é onde define o comando de start (que pode ser alterado)
 
 app = Application.builder().token(TOKEN).build()
 
