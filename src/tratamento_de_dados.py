@@ -1,14 +1,20 @@
 # === IMPORTAÇÂO DE BIBLIOTECAS ===
 import pandas as pd
 import numpy as np
+import os
 
 def tratamento():
+    # === FUNÇÃO PARA LER E TRATAR DADOS DA PLANILHA ===
     # === LENDO A PLANILHA ===
-    dfContratos = pd.read_csv('D:/FATEC/1° Semestre/Projeto Integrador/Projeto/CSV/PlanilhaContratosUTF.csv', delimiter=';')
-    dfTratada = dfContratos
+    basedir = os.path.dirname(os.path.dirname(__file__))
+    localPlanilha = os.path.join(basedir, 'data')
+    df_tratada = pd.read_csv(
+        localPlanilha + '\\data.csv',
+    delimiter=';'
+    )
 
     # === TRATAMENTO NOME DE COLUNAS ===
-    dfTratada = dfTratada.rename(
+    df_tratada = df_tratada.rename(
         columns={' ValorContrato ': 'ValorContrato',
                  ' ValorParcela ': 'ValorParcela',
                  ' ValorTroco ': 'ValorTroco'
@@ -17,127 +23,143 @@ def tratamento():
     # === TRATAMENTO DE DADOS ===
 
     # = TRATAMENTO COLUNA Atendente =
-    dfTratada['Atendente'] = dfTratada['Atendente'].str.strip()
-    dfTratada['Atendente'] = dfTratada['Atendente'].str.upper()
+    df_tratada['Atendente'] = df_tratada['Atendente'].str.strip()
+    df_tratada['Atendente'] = df_tratada['Atendente'].str.upper()
 
-    # = TRATAMENTO COLUNA Cliente 
-    dfTratada['Cliente'] = dfTratada['Cliente'].str.strip()
-    dfTratada['Cliente'] = dfTratada['Cliente'].str.upper()
+    # = TRATAMENTO COLUNA Cliente =
+    df_tratada['Cliente'] = df_tratada['Cliente'].str.strip()
+    df_tratada['Cliente'] = df_tratada['Cliente'].str.upper()
 
     # = TRATAMENTO COLUNA CPF =
-    dfTratada['CPF'] = dfTratada['CPF'].str.upper()
-    dfTratada['CPF'] = dfTratada['CPF'].str.replace(' ', '')
-    dfTratada['CPF'] = np.where(dfTratada['CPF'].isna(), 'NÃO INFORMADO', np.where(dfTratada['CPF'].str.contains('[A-z]', regex=True, na=False), 'NÃO INFORMADO CORRETAMENTE', dfTratada['CPF']))
+    df_tratada['CPF'] = df_tratada['CPF'].str.upper()
+    df_tratada['CPF'] = df_tratada['CPF'].str.replace(' ', '')
+    df_tratada['CPF'] = np.where(df_tratada['CPF'].isna(),
+                        'NÃO INFORMADO',
+                        np.where(df_tratada['CPF'].str.contains('[A-z]', regex=True, na=False),
+                                 'NÃO INFORMADO CORRETAMENTE',
+                                 df_tratada['CPF']))
     
     # = TRATAMENTO COLUNA Telefone =
-    dfTratada['Telefone'] = dfTratada['Telefone'].str.strip()
-    dfTratada['Telefone'] = dfTratada['Telefone'].str.upper()
-    dfTratada['Telefone'] = np.where(dfTratada['Telefone'].isna(), 'NÃO INFORMADO', np.where(dfTratada['Telefone'].str.contains('[A-z]', regex=True, na=False), 'NÃO INFORMADO CORRETAMENTE', dfTratada['Telefone']))
+    df_tratada['Telefone'] = df_tratada['Telefone'].str.strip()
+    df_tratada['Telefone'] = df_tratada['Telefone'].str.upper()
+    df_tratada['Telefone'] = np.where(df_tratada['Telefone'].isna(),
+                             'NÃO INFORMADO',
+                             np.where(df_tratada['Telefone'].str.contains('[A-z]', regex=True, na=False),
+                                      'NÃO INFORMADO CORRETAMENTE',
+                                      df_tratada['Telefone']))
 
     # = TRATAMENTO COLUNA EspecieBeneficio =
 
     # = TRATAMENTO COLUNA PropostaTipo =
-    dfTratada['PropostaTipo'] = dfTratada['PropostaTipo'].str.strip()
-    dfTratada['PropostaTipo'] = dfTratada['PropostaTipo'].str.upper()
+    df_tratada['PropostaTipo'] = df_tratada['PropostaTipo'].str.strip()
+    df_tratada['PropostaTipo'] = df_tratada['PropostaTipo'].str.upper()
 
     # = TRATAMENTO COLUNA NumeroProposta =
 
     # = TRATAMENTO COLUNA PropostaStatus =
-    dfTratada['PropostaStatus'] = dfTratada['PropostaStatus'].str.strip()
-    dfTratada['PropostaStatus'] = dfTratada['PropostaStatus'].str.upper()
+    df_tratada['PropostaStatus'] = df_tratada['PropostaStatus'].str.strip()
+    df_tratada['PropostaStatus'] = df_tratada['PropostaStatus'].str.upper()
 
     # = TRATAMENTO COLUNA BancoDigitado =
-    dfTratada['BancoDigitado'] = dfTratada['BancoDigitado'].str.strip()
-    dfTratada['BancoDigitado'] = dfTratada['BancoDigitado'].str.upper()
+    df_tratada['BancoDigitado'] = df_tratada['BancoDigitado'].str.strip()
+    df_tratada['BancoDigitado'] = df_tratada['BancoDigitado'].str.upper()
 
     # = TRATAMENTO COLUNA ValorContrato =
-    dfTratada['ValorContrato'] = dfTratada['ValorContrato'].str.upper()
-    dfTratada['ValorContrato'] = dfTratada['ValorContrato'].str.replace('R$', '')
-    dfTratada['ValorContrato'] = dfTratada['ValorContrato'].str.replace('.', '')
-    dfTratada['ValorContrato'] = dfTratada['ValorContrato'].str.replace('-', '0')
-    dfTratada['ValorContrato'] = dfTratada['ValorContrato'].str.replace(' ', '')
-    dfTratada['ValorContrato'] = dfTratada['ValorContrato'].str.replace(',', '.')
-    dfTratada['ValorContrato'] = pd.to_numeric(dfTratada['ValorContrato'], downcast='float')
+    df_tratada['ValorContrato'] = df_tratada['ValorContrato'].str.upper()
+    df_tratada['ValorContrato'] = df_tratada['ValorContrato'].str.replace('R$', '')
+    df_tratada['ValorContrato'] = df_tratada['ValorContrato'].str.replace('.', '')
+    df_tratada['ValorContrato'] = df_tratada['ValorContrato'].str.replace('-', '0')
+    df_tratada['ValorContrato'] = df_tratada['ValorContrato'].str.replace(' ', '')
+    df_tratada['ValorContrato'] = df_tratada['ValorContrato'].str.replace(',', '.')
+    df_tratada['ValorContrato'] = pd.to_numeric(df_tratada['ValorContrato'], downcast='float')
+    df_tratada['ValorContrato'] = df_tratada['ValorContrato'].round(2)
 
     # = TRATAMENTO COLUNA ValorParcela =
-    dfTratada['ValorParcela'] = dfTratada['ValorParcela'].str.upper()
-    dfTratada['ValorParcela'] = dfTratada['ValorParcela'].str.replace('R$', '')
-    dfTratada['ValorParcela'] = dfTratada['ValorParcela'].str.replace('.', '')
-    dfTratada['ValorParcela'] = dfTratada['ValorParcela'].str.replace('-', '0')
-    dfTratada['ValorParcela'] = dfTratada['ValorParcela'].str.replace(' ', '')
-    dfTratada['ValorParcela'] = dfTratada['ValorParcela'].str.replace(',', '.')
-    dfTratada['ValorParcela'] = pd.to_numeric(dfTratada['ValorParcela'], downcast='float')
+    df_tratada['ValorParcela'] = df_tratada['ValorParcela'].str.upper()
+    df_tratada['ValorParcela'] = df_tratada['ValorParcela'].str.replace('R$', '')
+    df_tratada['ValorParcela'] = df_tratada['ValorParcela'].str.replace('.', '')
+    df_tratada['ValorParcela'] = df_tratada['ValorParcela'].str.replace('-', '0')
+    df_tratada['ValorParcela'] = df_tratada['ValorParcela'].str.replace(' ', '')
+    df_tratada['ValorParcela'] = df_tratada['ValorParcela'].str.replace(',', '.')
+    df_tratada['ValorParcela'] = pd.to_numeric(df_tratada['ValorParcela'], downcast='float')
+    df_tratada['ValorParcela'] = df_tratada['ValorParcela'].round(2)
 
     # = TRATAMENTO COLUNA ValorTroco =
-    dfTratada['ValorTroco'] = dfTratada['ValorTroco'].str.upper()
-    dfTratada['ValorTroco'] = dfTratada['ValorTroco'].str.replace('R$', '')
-    dfTratada['ValorTroco'] = dfTratada['ValorTroco'].str.replace('.', '')
-    dfTratada['ValorTroco'] = dfTratada['ValorTroco'].str.replace('-', '0')
-    dfTratada['ValorTroco'] = dfTratada['ValorTroco'].str.replace(' ', '')
-    dfTratada['ValorTroco'] = dfTratada['ValorTroco'].str.replace(',', '.')
-    dfTratada['ValorTroco'] = pd.to_numeric(dfTratada['ValorTroco'], downcast='float')
+    df_tratada['ValorTroco'] = df_tratada['ValorTroco'].str.upper()
+    df_tratada['ValorTroco'] = df_tratada['ValorTroco'].str.replace('R$', '')
+    df_tratada['ValorTroco'] = df_tratada['ValorTroco'].str.replace('.', '')
+    df_tratada['ValorTroco'] = df_tratada['ValorTroco'].str.replace('-', '0')
+    df_tratada['ValorTroco'] = df_tratada['ValorTroco'].str.replace(' ', '')
+    df_tratada['ValorTroco'] = df_tratada['ValorTroco'].str.replace(',', '.')
+    df_tratada['ValorTroco'] = pd.to_numeric(df_tratada['ValorTroco'], downcast='float')
+    df_tratada['ValorTroco'] = df_tratada['ValorTroco'].round(2)
 
     # = TRATAMENTO COLUNA TaxaPorc =
-    dfTratada['TaxaPorc'] = dfTratada['TaxaPorc'].str.replace(',','.')
-    dfTratada['TaxaPorc'] = dfTratada['TaxaPorc'].str.replace('%','') 
-    dfTratada['TaxaPorc'] = pd.to_numeric(dfTratada['TaxaPorc'], downcast='float')
-    dfTratada['TaxaPorc'] = dfTratada['TaxaPorc'] / 100
+    df_tratada['TaxaPorc'] = df_tratada['TaxaPorc'].str.replace(',','.')
+    df_tratada['TaxaPorc'] = df_tratada['TaxaPorc'].str.replace('%','') 
+    df_tratada['TaxaPorc'] = pd.to_numeric(df_tratada['TaxaPorc'], downcast='float')
+    df_tratada['TaxaPorc'] = df_tratada['TaxaPorc'] / 100
 
     # = TRATAMENTO COLUNA TaxaCET = 
-    dfTratada['TaxaCET'] = dfTratada['TaxaCET'].str.replace(',','.') 
-    dfTratada['TaxaCET'] = dfTratada['TaxaCET'].str.replace('%','') 
-    dfTratada['TaxaCET'] = pd.to_numeric(dfTratada['TaxaCET'], downcast='float')
-    dfTratada['TaxaCET'] = dfTratada['TaxaCET'] / 100
+    df_tratada['TaxaCET'] = df_tratada['TaxaCET'].str.replace(',','.') 
+    df_tratada['TaxaCET'] = df_tratada['TaxaCET'].str.replace('%','') 
+    df_tratada['TaxaCET'] = pd.to_numeric(df_tratada['TaxaCET'], downcast='float')
+    df_tratada['TaxaCET'] = df_tratada['TaxaCET'] / 100
 
     # = TRATAMENTO COLUNA QuantidadeParcelas =
 
     # = TRATAMENTO COLUNA BancoPortado =
-    dfTratada['BancoPortado'] = dfTratada['BancoPortado'].str.strip()
-    dfTratada['BancoPortado'] = dfTratada['BancoPortado'].str.upper()
-    dfTratada['BancoPortado'] = np.where(dfTratada['BancoPortado'].isna(), 'NÃO INFORMADO', dfTratada['BancoPortado'])
+    df_tratada['BancoPortado'] = df_tratada['BancoPortado'].str.strip()
+    df_tratada['BancoPortado'] = df_tratada['BancoPortado'].str.upper()
+    df_tratada['BancoPortado'] = np.where(df_tratada['BancoPortado'].isna(),
+                                          'NÃO INFORMADO',
+                                          df_tratada['BancoPortado'])
 
     # = TRATAMENTO COLUNA DataEnvioCIP =
-    dfTratada['DataEnvioCIP'] = pd.to_datetime(dfTratada['DataEnvioCIP'], format='%d/%m/%Y')
+    df_tratada['DataEnvioCIP'] = pd.to_datetime(df_tratada['DataEnvioCIP'], format='%d/%m/%Y')
 
     # = TRATAMENTO COLUNA DataSaldoPago =
-    dfTratada['DataSaldoPago'] = np.where(dfTratada['DataSaldoPago'].isna(), 'PORTABILIDADE NÃO CONFIRMADA', dfTratada['DataSaldoPago'])
+    df_tratada['DataSaldoPago'] = np.where(df_tratada['DataSaldoPago'].isna(),
+                                            'PORTABILIDADE NÃO CONFIRMADA',
+                                            df_tratada['DataSaldoPago'])
 
     # = TRATAMENTO COLUNA OrigemCaptacao =
-    dfTratada['OrigemCaptacao'] = dfTratada['OrigemCaptacao'].str.strip()
-    dfTratada['OrigemCaptacao'] = dfTratada['OrigemCaptacao'].str.upper()
+    df_tratada['OrigemCaptacao'] = df_tratada['OrigemCaptacao'].str.strip()
+    df_tratada['OrigemCaptacao'] = df_tratada['OrigemCaptacao'].str.upper()
 
     # = TRATAMENTO COLUNA Orgao =
-    dfTratada['Orgao'] = dfTratada['Orgao'].str.strip()
-    dfTratada['Orgao'] = dfTratada['Orgao'].str.upper()
+    df_tratada['Orgao'] = df_tratada['Orgao'].str.strip()
+    df_tratada['Orgao'] = df_tratada['Orgao'].str.upper()
 
     # = TRATAMENTO COLUNA PossuiGravacao =
-    dfTratada['PossuiGravacao'] = dfTratada['PossuiGravacao'].str.strip()
-    dfTratada['PossuiGravacao'] = dfTratada['PossuiGravacao'].str.upper()
-    dfTratada['PossuiGravacao'] = np.where(dfTratada['PossuiGravacao'] == 'SIM', True, False)
+    df_tratada['PossuiGravacao'] = df_tratada['PossuiGravacao'].str.strip()
+    df_tratada['PossuiGravacao'] = df_tratada['PossuiGravacao'].str.upper()
+    df_tratada['PossuiGravacao'] = np.where(df_tratada['PossuiGravacao'] == 'SIM', True, False)
 
     # = TRATAMENTO COLUNA PossuiFoto =
-    dfTratada['PossuiFoto'] = dfTratada['PossuiFoto'].str.strip()
-    dfTratada['PossuiFoto'] = dfTratada['PossuiFoto'].str.upper()
-    dfTratada['PossuiFoto'] = np.where(dfTratada['PossuiFoto'] == 'SIM', True, False)
+    df_tratada['PossuiFoto'] = df_tratada['PossuiFoto'].str.strip()
+    df_tratada['PossuiFoto'] = df_tratada['PossuiFoto'].str.upper()
+    df_tratada['PossuiFoto'] = np.where(df_tratada['PossuiFoto'] == 'SIM', True, False)
 
     # = TRATAMENTO COLUNA EmRevisao =
-    dfTratada['EmRevisao'] = dfTratada['EmRevisao'].str.strip()
-    dfTratada['EmRevisao'] = dfTratada['EmRevisao'].str.upper()
-    dfTratada['EmRevisao'] = np.where(dfTratada['EmRevisao'] == 'SIM', True, False)
+    df_tratada['EmRevisao'] = df_tratada['EmRevisao'].str.strip()
+    df_tratada['EmRevisao'] = df_tratada['EmRevisao'].str.upper()
+    df_tratada['EmRevisao'] = np.where(df_tratada['EmRevisao'] == 'SIM', True, False)
 
     # = TRATAMENTO COLUNA DataUltimoStatus =
-    dfTratada['DataUltimoStatus'] = pd.to_datetime(dfTratada['DataUltimoStatus'], format='%d/%m/%Y')
+    df_tratada['DataUltimoStatus'] = pd.to_datetime(df_tratada['DataUltimoStatus'], format='%d/%m/%Y')
 
     # = TRATAMENTO COLUNA PossuiPendente =
-    dfTratada['PossuiPendente'] = dfTratada['PossuiPendente'].str.strip()
-    dfTratada['PossuiPendente'] = dfTratada['PossuiPendente'].str.upper()
-    dfTratada['PossuiPendente'] = np.where(dfTratada['PossuiPendente'] == 'SIM', True, False)
+    df_tratada['PossuiPendente'] = df_tratada['PossuiPendente'].str.strip()
+    df_tratada['PossuiPendente'] = df_tratada['PossuiPendente'].str.upper()
+    df_tratada['PossuiPendente'] = np.where(df_tratada['PossuiPendente'] == 'SIM', True, False)
 
     # = TRATAMENTO COLUNA DataCriacaoProposta =
-    dfTratada['DataCriacaoProposta'] = pd.to_datetime(dfTratada['DataCriacaoProposta'], format='%d/%m/%Y')
+    df_tratada['DataCriacaoProposta'] = pd.to_datetime(df_tratada['DataCriacaoProposta'], format='%d/%m/%Y')
 
     # = Retorno da Função =
-    return dfTratada
+    return df_tratada
 if __name__ == "__main__":
     teste = tratamento()
+    print(teste)
     print(teste.info())
