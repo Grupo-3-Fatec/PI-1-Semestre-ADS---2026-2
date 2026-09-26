@@ -1,8 +1,3 @@
-import pandas
-import os
+from Interface_Botões import iniciar_bot
 
-df = pandas.read_csv(
-    # os.path.join(os.getcwd(), 'data', 'data.csv'),
-    'data/data.csv',
-    delimiter=';'
-)
+iniciar_bot()

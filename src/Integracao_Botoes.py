@@ -5,6 +5,8 @@ from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 # FUNÇÃO: CRIAR PLANILHA
 # =========================
 
+from Interface_Botões import bot
+
 from cumprimeto_de_metas import cumprimento_metas
 from data_filter import singleDataFilter
 from Return_Tabela import salvar_dataframe_csv
