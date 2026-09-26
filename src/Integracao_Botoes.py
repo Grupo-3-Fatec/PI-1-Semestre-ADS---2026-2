@@ -5,6 +5,12 @@ from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 # FUNÇÃO: CRIAR PLANILHA
 # =========================
 
+from cumprimeto_de_metas import cumprimento_metas
+from data_filter import singleDataFilter
+from Return_Tabela import salvar_dataframe_csv
+from status_documento import contrato_elegivel, sem_documento, sem_gravacao
+from tratamento_de_dados import tratamento
+
 def criar_planilha(call):
     bot.send_message(
         call.message.chat.id,
