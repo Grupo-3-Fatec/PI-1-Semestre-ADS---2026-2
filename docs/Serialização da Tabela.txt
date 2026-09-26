@@ -1,0 +1,113 @@
+Serialização da Tabela
+Formato dos dados serializados
+***NÃO É O FORMATO QUE RETORNA NO CSV***
+
+= Coluna Atendentes =
+Aceita String
+Somente maiúsculo
+Sem espaços no começo e no final
+
+= Coluna Cliente =
+Aceita String
+Somente maiúsculo
+Sem espaços no começo e no final
+
+= CPF =
+Aceita String
+Não aceita letras
+se tiver vazio = "NÃO INFORMADO"
+se tiver letras = "NÃO INFORMADO CORRETAMENTE"
+formato: ***.***.***-**
+
+= Telefone =
+Aceita String
+Não aceita letras
+se tiver vazio = "NÃO INFORMADO"
+se tiver letras = "NÃO INFORMADO CORRETAMENTE"
+formato: (**) *****-****
+
+= EspecieBeneficio =
+Aceita Integer
+
+= PropostaTipo =
+Aceita Somente
+"PORTABILIDADE" | "REFIN DA PORTABILIDADE" | "MARGEM"
+
+= NumeroProposta = 
+Aceita Integer
+
+= PropostaStatus =
+Aceita Somente
+"INTEGRADO" | "AGUARDANDO ORG" | "SALDO PAGO"
+
+= BancoDigitado =
+Aceita String
+Somente maiúsculo
+Sem espaços no começo e no final
+
+= ValorContrato =
+Aceita Float
+formato = dois números após a virgula
+
+= ValorParcela = 
+Aceita Float
+formato = dois números após a virgula
+
+= ValorTroco = 
+Aceita Float
+formato = dois números após a virgula
+
+= TaxaPorc =
+Aceita FLoat
+formato = cinco números após a virgula
+
+= TaxaCET =
+Aceita FLoat
+formato = cinco números após a virgula
+
+= QuantidadeParcelas =
+Aceita Integer
+
+= BancoPortado = 
+Aceita String
+Somente maiúsculo
+Sem espaços no começo e no final
+
+= DataEnvioCIP =
+Aceita Date
+formato = DD/MM/AAAA
+
+= DataEnvioCIP =
+Aceita String
+formato = DD/MM/AAAA
+se não houver data = "PORTABILIDADE NÃO CONFIRMADA"
+
+= OrigemCaptacao = 
+Aceita String
+Somente maiúsculo
+Sem espaços no começo e no final
+
+= Orgao = 
+Aceita String
+Somente maiúsculo
+Sem espaços no começo e no final
+
+= PossuiGravacao =
+Aceita booleano (True/False)
+
+= PossuiFoto =
+Aceita booleano (True/False)
+
+= EmRevisao =
+Aceita booleano (True/False)
+
+= DataUltimoStatus =
+Aceita Date
+formato = DD/MM/AAAA
+
+= PossuiPendente =
+Aceita booleano (True/False)
+
+= DataCriacaoProposta =
+Aceita Date
+formato = DD/MM/AAAA
