@@ -11,7 +11,7 @@ TOKEN = "8996796895:AAE4b3B2LHOoQkgCBamW6QYpdmMWWAsnE6s"
 bot = telebot.TeleBot(TOKEN)
 
 
-from Integracao_Botoes import criar_planilha, filtrar_dados, retornar_requisicoes, eliminar_riscos_compliance, cumprimento_metas_chamar
+from Integracao_Botoes import botao_clicado
 
 
 # =========================
@@ -172,25 +172,27 @@ def start(message):
 # Aqui o código identifica qual botão foi pressionado
 
 @bot.callback_query_handler(func=lambda call: True)
-def botao_clicado(call):
+def botao(call):
+
+    botao_clicado(call)
 
     # Remove o "carregando" do botão no Telegram
-    bot.answer_callback_query(call.id)
+    # bot.answer_callback_query(call.id)
 
-    if call.data == "criar_planilha":
-        criar_planilha(call)
+    # if call.data == "criar_planilha":
+    #     criar_planilha(call)
 
-    elif call.data == "dados_planilha":
-        filtrar_dados(call)
+    # elif call.data == "dados_planilha":
+    #     filtrar_dados(call)
 
-    elif call.data == "requisicoes_planilha":
-        retornar_requisicoes(call)
+    # elif call.data == "requisicoes_planilha":
+    #     retornar_requisicoes(call)
 
-    elif call.data == "risco_compliance":
-        eliminar_riscos_compliance(call)
+    # elif call.data == "risco_compliance":
+    #     eliminar_riscos_compliance(call)
 
-    elif call.data == "metas":
-        cumprimento_metas_chamar(call)
+    # elif call.data == "metas":
+    #     cumprimento_metas_chamar(call)
 
 
 # =========================

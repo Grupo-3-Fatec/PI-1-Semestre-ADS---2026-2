@@ -63,7 +63,7 @@ def filtrar_dados(call):
     )
 
 def sem_gravacao_chamar(call):
-        resultado = sem_gravacao()
+        resultado = sem_gravacao(tratamento())
         #executa a função sem_gravacao e envia pela mensagem do telegram pelo comando abaixo:
         TAMANHO_MAXIMO = 4000
         #como o limite de characteres por mensagem do telegram é ~4000, 
@@ -87,7 +87,7 @@ def sem_gravacao_chamar(call):
             )
 
 def sem_documento_chamar(call):
-        resultado = sem_documento()
+        resultado = sem_documento(tratamento())
         TAMANHO_MAXIMO = 4000
 
         if len(resultado) > TAMANHO_MAXIMO:
@@ -109,7 +109,7 @@ def sem_documento_chamar(call):
             )
 
 def contrato_elegivel_chamar(call):
-        resultado = contrato_elegivel()
+        resultado = contrato_elegivel(tratamento())
         TAMANHO_MAXIMO = 4000
 
         if len(resultado) > TAMANHO_MAXIMO:
