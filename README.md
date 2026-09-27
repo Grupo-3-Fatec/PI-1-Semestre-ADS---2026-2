@@ -5,7 +5,7 @@
 # Haverá Logo para o projeto? - 📍
 # <p style="text-align: center;"> Reboot </p>
 ---
-<h5>|
+<h5 align='center'>|
 <a href='#desafio' style="text-decoration: underline">Desafio </a>|
 <a href='#solucao' style="text-decoration: underline">Solução </a>|
 <a href='#backlog' style="text-decoration: underline">Backlog do Produto </a>|
@@ -56,14 +56,18 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 - **Aprovado pelo PO:** O PO validou a entrega e concorda que está apropriada para implementação.
 ---
 ## Cronograma de Sprints <a id='sprint'></a>
-- **07/09 à 27/09**: [Sprint 1](./docs/sprint_1/Readme.md)
-- **05/10 à 25/10**: Sprint 2
-- **02/11 à 22/11**: Sprint 3
+- **07/09 à 27/09**: [**Sprint 1**](./docs/sprint_1/Readme.md)
+- **05/10 à 25/10**: **Sprint 2**
+- **02/11 à 22/11**: **Sprint 3**
 ---
 ## Technologias Utilizadas <a id='tech'></a>
->&nbsp;
->&nbsp;
->&nbsp;
+<h5 align='center'>
+    <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></a>
+    <a href="https://www.atlassian.com/software/jira"><img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white"/></a>
+    <a href="https://github.com/"><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/></a>
+    <a href="https://github.com/"><img src="https://img.shields.io/badge/Telegram-006bb1?style=for-the-badge&logo=telegram&logoColor=white"/></a>
+</h5>
+
 ---
 ## Manual do Usuário <a id='user'></a>
 >&nbsp;
@@ -107,8 +111,8 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
         <tr>
             <th>Gustavo Oliveira Gonçalves</th>
             <th>Scrum Team</th>
-            <th><a href='github.nome'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
-            <th><a href='https://github.com/gustavoo-gon'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+            <th><a href='https://github.com/gustavoo-gon'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
+            <th><a href=''><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
         </tr>
         <tr>
             <th>José Roberto dos Santos Neto</th>
@@ -120,7 +124,7 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
             <th>Lucas Nanni de Oliveira Abruceze</th>
             <th>Scrum Team</th>
             <th><a href='https://github.com/LucasNanni05'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
-            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+            <th><a href='https://www.linkedin.com/in/lucas-nanni-88351842b/'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
         </tr>
         <tr>
             <th>Lucas Nascimento Fernandes</th>
@@ -132,7 +136,7 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
             <th>Vinícius de Souza Moura Moraes</th>
             <th>Scrum Team</th>
             <th><a href='https://github.com/vinismm2007'><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a></th>
-            <th><a href='https://www.linkedin.com/in/vinícius-de-souza-moura-moraes-5556b5379'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
+            <th><a href='linkedin.nome'><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a></th>
         </tr>
     </table>
 </div>
