@@ -12,7 +12,7 @@
 <a href='#done' style="text-decoration: underline">DoD </a>|
 
 ## Desafio <a id='desafio'></a>
-lorem ipsum
+O desafio da 1° Sprint foi criar um chatbot para organização de planilhas sobre empréstimos bancários, onde o bot iria ler a planilha e retornar outra planilha com os dados filtrados para facilitar a visualização de certos aspectos da planilha, como saber quais atendentes bateram a  meta de vendas ou quais contratos estão elegíveis para integrar com CRM.
 
 ## Backlog da Sprint <a id='backlog'></a>
 | RANK | PRIORIDADE | USER STORY | STORY POINTS | SPRINT |
