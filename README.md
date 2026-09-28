@@ -2,7 +2,6 @@
 ---
 # reBOT - Reboot
 ---
-# Haverá Logo para o projeto? - 📍
 # <p style="text-align: center;"> Reboot </p>
 ---
 <h5 align='center'>|
