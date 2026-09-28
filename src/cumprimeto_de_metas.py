@@ -24,8 +24,8 @@ def cumprimento_metas(df_tratada, meta_geral_margem, meta_geral_portabilidade):
     vendas_margem = analise[analise['PropostaTipo'] == 'MARGEM'].groupby('Atendente')['ValorTroco'].sum().values
 
     # = Preenchendo Tabela de Retorno =
-    planilha_metas['ValorVendasPortabilidade'] = vendas_portabilidade
-    planilha_metas['ValorVendasMargem'] = vendas_margem
+    planilha_metas['ValorVendasPortabilidade'] = vendas_portabilidade.round(2)
+    planilha_metas['ValorVendasMargem'] = vendas_margem.round(2)
     planilha_metas['AtingiuMetaPortabilidade'] = np.where(planilha_metas['ValorVendasPortabilidade'] > meta_portabilidade,
                                                           'META DE PORTABILIDADE ATINGIDA',
                                                           'META DE PORTABILIDADE NÃO ATINGIDA')
