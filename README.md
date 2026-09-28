@@ -17,10 +17,8 @@
 <a href='#team' style="text-decoration: underline">Equipe </a>|
 </h5>
 
->Status do Projeto: 
->Video do Projeto: 
->&nbsp;
->&nbsp;
+>**Status do Projeto:** **WIP**
+>**Video do Projeto:** https://drive.google.com/file/d/1FpCi3CjFcdRDonnCMljXBkNtvOZUyb60/view
 
 ## Desafio <a id='desafio'></a>
 O desafio dessa A.P.I. consiste em utilizar a linguagem Python para extrair insights a partir de dados em uma planilha e integrar isso em um chatbot do telegram. Esse bot deve ser capaz de seguir comandos, conversar naturalmente com o usuário e possuir voz (assistente virtual com voz). Não foi permitido a utilização de nenhuma API externa (e.g. ChatGPT API).
@@ -70,9 +68,11 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 
 ---
 ## Manual do Usuário <a id='user'></a>
->&nbsp;
->&nbsp;
->&nbsp;
+
+>**Acesse: <a href="https://t.me/jose12345bot">https://t.me/jose12345bot</a>** 
+>**Digite /start para iniciar a conversa**
+>**Interaja com a mensagem do bot**
+
 ---
 ## Equipe <a id='team'></a>
 
