@@ -32,11 +32,13 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 |2|Alta|Como gerente, quero que o bot crie uma tabela baseada nos items solicitados, para delimitar o escopo da análise.|17|1|
 |3|Alta|Como gerente, quero saber quais atendentes bateram a meta desse mês, para gerenciamento eficiente da equipe.|13|1|
 |4|Alta|Como gerente, quero verificar quais contratos possuem gravação com cliente, foto selfie com RG e capa do contrato, para poder integrar contrato no CRM.|20|1|
-|5|Média|Como gerente, quero que o chatbot responda mensagens, para que possa oferecer insights mais específicos.|20|2|
-|6|Média|Como gerente quero saber quais contratos estão dentro da taxa correta, para sabermos quais contratos receberemos comissão.|20|2|
-|7|Média|Como gerente, quero poder conversar com o bot, para aumentar a acessibilidade e eficiência das operações.|89|2|
-|8|Baixa|Como gerente, quero que contratos que passaram de 7 dias com pendência de documentos sejam cancelados, para que o time não perca tempo cobrando contratos obsoletos.|17|3|
-|9|Baixa|Como gerente, quero que o bot reconheça fala e execute comandos falados, para aumentar as formas de realizar operações|17|3|
+|5|Média|Como gerente quero saber quais contratos estão dentro da taxa correta, para sabermos quais contratos receberemos comissão e diferenciar entre comissão da loja e comissão por atendente.|21|2|
+|6|Média|Como gerente, quero que o chatbot responda mensagens, para que possa oferecer insights mais específicos.|21|2|
+|7|Média|Como gerente, quero que contratos que passaram de 15 dias com pendência de documentos sejam cancelados, para que o time não perca tempo cobrando contratos obsoletos.|13|2|
+|8|Média|Como gerente, quero que as planilhas retornem formatadas (.xlsx), para melhor leitura dos dados.|8|2|
+|9|Baixa|Como gerente, quero feedback visual (tipo loading screen) de que o bot está processando a mensagem, para ter feedback melhor do processo do bot.|5|2|
+|10|Média|Como gerente, quero poder conversar com o bot, para aumentar a acessibilidade e eficiência das operações.|89|3|
+|11|Baixa|Como gerente, quero que o bot reconheça fala e execute comandos falados, para aumentar as formas de realizar operações|17|3|
 ---
 ## DoR - Definition of Ready <a id='ready'></a>
 - **User story adequada:** Segue o formato "Como [tipo de usuário], quero [funcionalidade], para que [benefício]".
