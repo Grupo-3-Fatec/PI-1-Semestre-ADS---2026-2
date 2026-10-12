@@ -3,6 +3,7 @@ import telebot
 import os
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Interface_Botões import bot
+from FeedBack_Visual import mensagem_de_espera, apagar_mensagem_de_espera
 
 from cumprimeto_de_metas import cumprimento_metas
 from Return_Tabela import salvar_dataframe_csv
@@ -72,6 +73,8 @@ def botao_clicado(call):
     # Remove o "carregando" do botão no Telegram
     bot.answer_callback_query(call.id)
 
+    espera = mensagem_de_espera(call)
+
     if call.data == "elegiveis":
         Contratos_elegiveis(call)
 
@@ -80,3 +83,5 @@ def botao_clicado(call):
 
     elif call.data == "metas":
         cumprimento_metas_chamar(call)
+
+    apagar_mensagem_de_espera(call, espera)
