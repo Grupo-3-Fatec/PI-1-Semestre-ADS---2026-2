@@ -1,12 +1,13 @@
 import pandas as pd
-#ValorContrato ValorParcela ValorTroco
 
 df = pd.read_csv('data_tratada.csv', sep=';')
-df = pd.DataFrame(df)
 
-def df_formatado(Dataframe):
-    Dataframe = df
-    Dataframe = df.replace(True, "SIM").replace(False, "NÃO")
+def df_dess(Dataframe:df):
+    Dataframe = Dataframe.replace(True, "SIM").replace(False, "NÃO")
+    Valores = ['ValorContrato', 'ValorParcela', 'ValorTroco']
+    Dataframe[Valores] = df[Valores].astype(str)
+
     return Dataframe
 
-print(df_formatado(df))
+teste = df_dess(df)
+print(teste)
