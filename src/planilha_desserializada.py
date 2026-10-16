@@ -1,4 +1,4 @@
-#==== Importa a biblioteca pandas ===#
+#==== Importa a biblioteca pandas e o motor para o excel===#
 import pandas as pd
 
 #== CRIA UM DATAFRAME COM O ARQUIVO CSV SERIALIZADO ==#
@@ -26,8 +26,15 @@ def df_dess(Dataframe):
     Dataframe[ValoresR] = 'R$' + ' ' + Dataframe[ValoresR]
     #=== Adiciona % no final do texto em cada linha ===#
     Dataframe[ValoresP] = Dataframe[ValoresP] + '%'
+
+    #===== | ESTILIZAÇÃO | =====#
+    zebrado = pd.DataFrame("background-color: #F2F0EF",
+                           index=Dataframe.index, columns=Dataframe.columns)
     
-    return Dataframe
+    zebrado.iloc[1::2, :] = "background-color: #d8bfd8"
+    
+    return Dataframe.style.apply(lambda _:zebrado, axis=None)
 
 teste = df_dess(df)
+teste.to_excel("Data.xlsx", index=False)
 print(teste)
