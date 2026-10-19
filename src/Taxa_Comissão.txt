@@ -1,0 +1,14 @@
+from Interface_Botões import bot
+
+def cumprimento_metas(call):
+    msg = bot.send_message(
+        call.message.chat.id,
+        "Envie o valor do cumprimento de metas em porcentagem:"
+    )
+
+    bot.register_next_step_handler(msg, receber_porcentagem)
+
+
+def receber_porcentagem(message):
+    print("Valor recebido:", message.text)
+    # Depois vamos usar esse valor para gerar a tabela

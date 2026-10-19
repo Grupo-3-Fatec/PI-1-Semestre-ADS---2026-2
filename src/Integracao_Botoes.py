@@ -8,6 +8,7 @@ from cumprimeto_de_metas import cumprimento_metas
 from Return_Tabela import salvar_dataframe_csv
 from status_documento import contrato_elegivel
 from tratamento_de_dados import tratamento
+from Taxa_Comissão import Comissao, receber_porcentagem
 
 def Contratos_elegiveis(call):
     bot.send_message(
@@ -79,4 +80,5 @@ def botao_clicado(call):
           Contratos_nao_elegiveis(call)
 
     elif call.data == "metas":
+        Comissao(call)
         cumprimento_metas_chamar(call)

@@ -9,8 +9,8 @@ def mensagem_de_espera(call):
     return mensagem
 
 bot delete_message(
-    mensagem.chat.id,
-    mensagem.message_id
+        mensagem.chat.id,
+        mensagem.message_id
 )
 
 
