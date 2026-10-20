@@ -20,10 +20,10 @@ def receber_porcentagem(message):
             )
             return
     
-    if porcentagem < 0 or porcentagem > 1:
+    if porcentagem < 0 or porcentagem > 5:
             bot.send_message(
                 message.chat.id,
-                "Digite uma porcentagem entre 0.01 e 1."
+                "Digite uma porcentagem entre 0.01 e 5."
             )
             return
 
