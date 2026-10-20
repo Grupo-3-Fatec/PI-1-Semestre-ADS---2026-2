@@ -49,8 +49,8 @@ def processar_mensagem(mensagem: str):
         return "Entendi nada meu rei"
 
 # Isso é só teste
-if __name__=="__main__":
+"""if __name__=="__main__":
     print(processar_mensagem("Quem matou Osama Bin Laden?"))
     print(processar_mensagem("quero ver os contratos não elegiveis"))
 # Essa linha verifica o raciocínio racional
-dspy.inspect_history(n=1)
+dspy.inspect_history(n=1)"""
