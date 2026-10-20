@@ -3,11 +3,8 @@
 # Integrar no Telegram.
 
 import dspy
-import pandas as pd
 from config import lm_config
-from cumprimeto_de_metas import cumprimento_metas
-from tratamento_de_dados import tratamento
-from status_documento import contrato_elegivel
+from Integracao_Botoes import Contratos_elegiveis, Contratos_nao_elegiveis, cumprimento_metas_chamar
 
 lm_config()
 
@@ -18,9 +15,8 @@ class SeletorContexto(dspy.Signature):
     user_input: str = dspy.InputField(desc="O pedido ou pergunta digitada pelo usuário.")
     # Vai retornar o nome de uma dessas funções e classe
     funcao_ou_classe_escolhida: str = dspy.OutputField(
-        desc="Nome exato da função ou classe a ser usada: 'cumprimento_de_metas', 'status_documento', 'QA'."
+        desc="Nome da função ou classe a ser usada: 'cumprimento_de_metas', 'contratos_elegiveis', 'contratos_nao_elegiveis', 'QA'."
     )
-
 
 # Essa classe por enquanto é um pergunta -> resposta simples
 class QA(dspy.Signature):
@@ -33,6 +29,7 @@ class QA(dspy.Signature):
 
 # Essa função chama as funções (kkkk)
 def processar_mensagem(mensagem: str):
+
     # Pega o input e outputa o nome de uma das funções
     decisao = dspy.Predict(SeletorContexto)(user_input=mensagem)
     # Pega a string da variável funcao_ou_classe_escolhida e vê se tem o nome certo dentro
@@ -40,10 +37,13 @@ def processar_mensagem(mensagem: str):
         return dspy.Predict(QA)(user_input=mensagem).resposta
 
     elif "cumprimento_de_metas" in decisao.funcao_ou_classe_escolhida:
-        return cumprimento_metas(tratamento(), 2000000, 1000000)
+        return cumprimento_metas_chamar
 
-    elif "status_documento" in decisao.funcao_ou_classe_escolhida:
-        return contrato_elegivel()
+    elif "contratos_elegiveis" in decisao.funcao_ou_classe_escolhida:
+        return Contratos_elegiveis
+
+    elif "contratos_nao_elegiveis" in decisao.funcao_ou_classe_escolhida:
+        return Contratos_nao_elegiveis
 
     else:
         return "Entendi nada meu rei"
@@ -51,6 +51,6 @@ def processar_mensagem(mensagem: str):
 # Isso é só teste
 if __name__=="__main__":
     print(processar_mensagem("Quem matou Osama Bin Laden?"))
-    print(processar_mensagem("quero ver os contratos"))
+    print(processar_mensagem("quero ver os contratos não elegiveis"))
 # Essa linha verifica o raciocínio racional
 dspy.inspect_history(n=1)
