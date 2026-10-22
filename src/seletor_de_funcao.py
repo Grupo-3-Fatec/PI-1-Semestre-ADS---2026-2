@@ -2,11 +2,18 @@
 # Colocar as outras funções
 # Integrar no Telegram.
 
+import os
 import dspy
+import telebot
 from config import lm_config
+from Interface_Botões import bot
 from Integracao_Botoes import Contratos_elegiveis, Contratos_nao_elegiveis, cumprimento_metas_chamar
 
 lm_config()
+
+TOKEN = os.environ.get("BOT_TOKEN")
+
+bot = telebot.TeleBot(TOKEN)
 
 # Essa classe pega o input e decide qual das funções é a mais apropriada.
 class SeletorContexto(dspy.Signature):
@@ -28,7 +35,7 @@ class QA(dspy.Signature):
     resposta: str = dspy.OutputField(desc="resposta concisa e direta ao ponto")
 
 # Essa função chama as funções (kkkk)
-def processar_mensagem(mensagem: str):
+def processar_mensagem(mensagem: str, call):
 
     # Pega o input e outputa o nome de uma das funções
     decisao = dspy.Predict(SeletorContexto)(user_input=mensagem)
@@ -37,16 +44,16 @@ def processar_mensagem(mensagem: str):
         return dspy.Predict(QA)(user_input=mensagem).resposta
 
     elif "cumprimento_de_metas" in decisao.funcao_ou_classe_escolhida:
-        return cumprimento_metas_chamar
+        return cumprimento_metas_chamar(call)
 
     elif "contratos_elegiveis" in decisao.funcao_ou_classe_escolhida:
-        return Contratos_elegiveis
+        return Contratos_elegiveis(call)
 
     elif "contratos_nao_elegiveis" in decisao.funcao_ou_classe_escolhida:
-        return Contratos_nao_elegiveis
+        return Contratos_nao_elegiveis(call)
 
     else:
-        return "Entendi nada meu rei"
+        return bot.send_message(call.message.chat.id, "Não entendi sua mensagem.")
 
 # Isso é só teste
 """if __name__=="__main__":
