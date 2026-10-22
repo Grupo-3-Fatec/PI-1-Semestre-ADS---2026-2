@@ -2,18 +2,12 @@
 # Colocar as outras funções
 # Integrar no Telegram.
 
-import os
 import dspy
-import telebot
 from config import lm_config
 from Interface_Botões import bot
 from Integracao_Botoes import Contratos_elegiveis, Contratos_nao_elegiveis, cumprimento_metas_chamar
 
 lm_config()
-
-TOKEN = os.environ.get("BOT_TOKEN")
-
-bot = telebot.TeleBot(TOKEN)
 
 # Essa classe pega o input e decide qual das funções é a mais apropriada.
 class SeletorContexto(dspy.Signature):
@@ -36,28 +30,35 @@ class QA(dspy.Signature):
 
 # Essa função chama as funções (kkkk)
 def processar_mensagem(mensagem: str, call):
+    """
+    Decide o que fazer com a mensagem de texto.
 
-    # Pega o input e outputa o nome de uma das funções
+    Retornos:
+      - str  → resposta do QA (o handler do Telegram deve enviar).
+      - None → as funções de arquivo já enviaram o que tinham que enviar.
+    """
     decisao = dspy.Predict(SeletorContexto)(user_input=mensagem)
-    # Pega a string da variável funcao_ou_classe_escolhida e vê se tem o nome certo dentro
-    if "QA" in decisao.funcao_ou_classe_escolhida:
+    escolha = decisao.funcao_ou_classe_escolhida.lower()
+
+    # QA — retorna string; quem chama envia no Telegram
+    if "qa" in escolha:
         return dspy.Predict(QA)(user_input=mensagem).resposta
 
-    elif "cumprimento_de_metas" in decisao.funcao_ou_classe_escolhida:
-        return cumprimento_metas_chamar(call)
-
-    elif "contratos_elegiveis" in decisao.funcao_ou_classe_escolhida:
-        return Contratos_elegiveis(call)
-
-    elif "contratos_nao_elegiveis" in decisao.funcao_ou_classe_escolhida:
-        return Contratos_nao_elegiveis(call)
-
+    # Pega a string da variável funcao_ou_classe_escolhida e vê se tem o nome certo dentro
+    if "contratos_nao_elegiveis" in escolha:
+        Contratos_nao_elegiveis(call)
+    elif "contratos_elegiveis" in escolha:
+        Contratos_elegiveis(call)
+    elif "cumprimento_de_metas" in escolha:
+        cumprimento_metas_chamar(call)
     else:
-        return bot.send_message(call.message.chat.id, "Não entendi sua mensagem.")
+        return "Não entendi sua mensagem."
+
+    return None
 
 # Isso é só teste
-"""if __name__=="__main__":
-    print(processar_mensagem("Quem matou Osama Bin Laden?"))
-    print(processar_mensagem("quero ver os contratos não elegiveis"))
+if __name__=="__main__":
+    print(processar_mensagem("Quem matou Osama Bin Laden?", chat_id=0))
+    print(processar_mensagem("quero ver os contratos não elegiveis", chat_id=0))
 # Essa linha verifica o raciocínio racional
-dspy.inspect_history(n=1)"""
+dspy.inspect_history(n=1)
