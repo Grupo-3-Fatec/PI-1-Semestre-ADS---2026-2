@@ -4,8 +4,15 @@
 
 import dspy
 from config import lm_config
-from Interface_Botões import bot
-from Integracao_Botoes import Contratos_elegiveis, Contratos_nao_elegiveis, cumprimento_metas_chamar
+from Integracao_Botoes import (
+    Contratos_elegiveis,
+    Contratos_nao_elegiveis,
+    cumprimento_metas_chamar,
+    comissao_loja_chamar,
+    comissao_atendente_chamar,
+    alerta_prazos,
+)
+
 
 lm_config()
 
@@ -16,7 +23,8 @@ class SeletorContexto(dspy.Signature):
     user_input: str = dspy.InputField(desc="O pedido ou pergunta digitada pelo usuário.")
     # Vai retornar o nome de uma dessas funções e classe
     funcao_ou_classe_escolhida: str = dspy.OutputField(
-        desc="Nome da função ou classe a ser usada: 'cumprimento_de_metas', 'contratos_elegiveis', 'contratos_nao_elegiveis', 'QA'."
+        desc="Nome da função ou classe a ser usada: 'comissao_loja_chamar', 'cumprimento_metas_chamar', 'contratos_elegiveis'," \
+        "'comissao_atendente_chamar', 'alerta_prazos', 'contratos_nao_elegiveis', 'QA'."
     )
 
 # Essa classe por enquanto é um pergunta -> resposta simples
@@ -49,8 +57,14 @@ def processar_mensagem(mensagem: str, call):
         Contratos_nao_elegiveis(call)
     elif "contratos_elegiveis" in escolha:
         Contratos_elegiveis(call)
-    elif "cumprimento_de_metas" in escolha:
+    elif "cumprimento_metas_chamar" in escolha:
         cumprimento_metas_chamar(call)
+    elif "comissao_loja_chamar" in escolha:
+        comissao_loja_chamar(call)
+    elif "comissao_atendente_chamar" in escolha:
+        comissao_atendente_chamar(call)
+    elif "alerta_prazos" in escolha:
+        alerta_prazos(call)
     else:
         return "Não entendi sua mensagem."
 

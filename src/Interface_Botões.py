@@ -12,6 +12,8 @@ bot = telebot.TeleBot(TOKEN)
 
 
 from Integracao_Botoes import botao_clicado
+
+#Adicionado pela feat(REB-22)
 from seletor_de_funcao import processar_mensagem
 
 # =========================
@@ -38,6 +40,24 @@ def criar_botoes():
         InlineKeyboardButton(
             "Cumprimento de Metas",
             callback_data="metas"
+        )
+    )
+    botoes.add(
+        InlineKeyboardButton(
+            "Calcular Comissionamento da Loja",
+            callback_data="comloja"
+        )
+    )
+    botoes.add(
+        InlineKeyboardButton(
+            "Calcular Comissionamento do Atendente",
+            callback_data="comatendente"
+        )
+    )
+    botoes.add(
+        InlineKeyboardButton(
+            "Alerta de Prazos",
+            callback_data="prazos"
         )
     )
 
@@ -70,6 +90,7 @@ def start(message):
         reply_markup=botoes
     )
 
+#Adicionado pela feat(REB-22) para receber mensagens de texto
 @bot.message_handler(content_types=['text'])
 def responder_texto(message):
     try:
