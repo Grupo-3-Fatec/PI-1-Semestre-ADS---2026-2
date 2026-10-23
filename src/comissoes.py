@@ -59,6 +59,36 @@ def comissao_atendente(contratos: pd.DataFrame, atendentes: pd.DataFrame):
     # = Retorno da Planilha =
     return planilha_comissoes
 
+def verifica_loja(contratos: pd.DataFrame, taxa_margem: float, taxa_port: float) -> pd.DataFrame:
+
+    #exclui contratos que não estão dentro da taxa pra portabilidade
+    #o simbolo '~' serve apenas pra inverter a logica.
+    contratos = contratos[
+        ~((contratos["PropostaTipo"] == 'REFIN DA PORTABILIDADE') & 
+        (contratos["TaxaPorc"] < taxa_port))        
+    ]
+
+    #repete o de cima pra margem
+    contratos = contratos[
+            ~((contratos["PropostaTipo"] == 'MARGEM') & 
+            (contratos["TaxaPorc"] < taxa_margem))        
+        ]
+
+    return contratos.to_excel('response.xlsx')
+
+def comissao_loja(contratos: pd.DataFrame, taxa_margem_loja: float, taxa_port_loja: float) -> pd.DataFrame:
+    """Retorna uma planilha com os contratos comissionaveis e seus
+    valores de comissao da loja. Cada contrato aparece com seu valor de comissao"""
+
+    #ciaçao de duas condiçoes pra contratos do tipo port e margem
+    planilha_port = contratos[contratos['PropostaTipo'] == 'REFIN DA PORTABILIDADE']
+    planilha_margem = contratos[contratos['PropostaTipo'] == 'MARGEM']
+
+    #cria duas novas colunas e pra cada uma ela aplica a porcentagem de comissao no valor a ser calculado
+    contratos['ComissãoPort'] = planilha_port['ValorContrato'] * taxa_port_loja
+    contratos['ComissãoMargem'] = planilha_margem['ValorTroco'] * taxa_margem_loja
+
+    return contratos[['Atendente', 'PropostaTipo', 'NumeroProposta', 'ValorContrato', 'ComissãoPort', 'ComissãoMargem']]
 
 if __name__ == "__main__":
     teste = verifica_atendentes(contrato_elegivel(tratamento(), True), 0.0120, 0.0140)
