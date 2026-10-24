@@ -2,7 +2,7 @@
 ---
 # reBOT - Reboot
 ---
-# Documentação: sprint 1
+# Documentação: sprint 2
 ---
 # <p style="text-align: center;"> Reboot </p>
 <h5>|
@@ -12,7 +12,7 @@
 <a href='#done' style="text-decoration: underline">DoD </a>|
 
 ## Desafio <a id='desafio'></a>
-
+Nessa sprint, foram desenvolvidas novas funcionalidades de criação de planilhas excel para análise de dados específicos, adicionado linguagem natural para responder perguntas e chamar funcionalidades previamente acessadas somente através de botões, com algumas melhorias para a experiência do usuário.
 
 ## Backlog da Sprint <a id='backlog'></a>
 | RANK | PRIORIDADE | USER STORY | STORY POINTS | SPRINT |
