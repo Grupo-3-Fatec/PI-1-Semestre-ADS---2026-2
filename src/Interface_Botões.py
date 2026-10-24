@@ -40,6 +40,23 @@ def criar_botoes():
             callback_data="metas"
         )
     )
+    botoes.add(
+        InlineKeyboardButton(
+            "Calcular Comissionamento da Loja",
+            callback_data="comloja"
+        )
+    )
+    botoes.add(
+        InlineKeyboardButton(
+            "Calcular Comissionamento do Atendente",
+            callback_data="comatendente"
+        )
+    )
+    botoes.add(
+        InlineKeyboardButton(
+            "Alerta de Prazos",
+            callback_data="prazos"
+        )
 
     return botoes
 
