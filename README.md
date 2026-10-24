@@ -56,7 +56,7 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 ---
 ## Cronograma de Sprints <a id='sprint'></a>
 - **07/09 à 27/09**: [**Sprint 1**](./docs/sprint_1/Readme.md)
-- **05/10 à 25/10**: **Sprint 2**
+- **05/10 à 25/10**: [**Sprint 2**](./docs/sprint_2/readme.md)
 - **02/11 à 22/11**: **Sprint 3**
 ---
 ## Technologias Utilizadas <a id='tech'></a>
@@ -70,7 +70,7 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 ---
 ## Manual do Usuário <a id='user'></a>
 
->**Acesse: <a href="https://t.me/jose12345bot">https://t.me/jose12345bot</a>** 
+>**Acesse: <a href="https://t.me/Rebootrebot_bot">https://t.me/Rebootrebot_bot</a>**
 >**Digite /start para iniciar a conversa**
 >**Interaja com a mensagem do bot**
 
