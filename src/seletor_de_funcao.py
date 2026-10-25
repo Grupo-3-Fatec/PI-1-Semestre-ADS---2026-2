@@ -37,7 +37,7 @@ class QA(dspy.Signature):
     resposta: str = dspy.OutputField(desc="resposta concisa e direta ao ponto")
 
 # Essa função chama as funções (kkkk)
-def processar_mensagem(mensagem: str, call):
+def processar_mensagem(mensagem: str, message):
     """
     Decide o que fazer com a mensagem de texto.
 
@@ -54,17 +54,17 @@ def processar_mensagem(mensagem: str, call):
 
     # Pega a string da variável funcao_ou_classe_escolhida e vê se tem o nome certo dentro
     if "contratos_nao_elegiveis" in escolha:
-        Contratos_nao_elegiveis(call)
+        Contratos_nao_elegiveis(message)
     elif "contratos_elegiveis" in escolha:
-        Contratos_elegiveis(call)
+        Contratos_elegiveis(message)
     elif "cumprimento_metas_chamar" in escolha:
-        cumprimento_metas_chamar(call)
+        cumprimento_metas_chamar(message)
     elif "comissao_loja_chamar" in escolha:
-        comissao_loja_chamar(call)
+        comissao_loja_chamar(message)
     elif "comissao_atendente_chamar" in escolha:
-        comissao_atendente_chamar(call)
+        comissao_atendente_chamar(message)
     elif "alerta_prazos" in escolha:
-        alerta_prazos(call)
+        alerta_prazos(message)
     else:
         return "Não entendi sua mensagem."
 
