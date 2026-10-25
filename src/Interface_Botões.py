@@ -13,6 +13,8 @@ bot = telebot.TeleBot(TOKEN)
 
 from Integracao_Botoes import botao_clicado
 
+#Adicionado pela feat(REB-22)
+from seletor_de_funcao import processar_mensagem
 
 # =========================
 # FUNÇÃO: CRIAR BOTÕES
@@ -58,6 +60,7 @@ def criar_botoes():
             callback_data="prazos"
         )
     )
+
     return botoes
 
 
@@ -87,6 +90,19 @@ def start(message):
         reply_markup=botoes
     )
 
+#Adicionado pela feat(REB-22) para receber mensagens de texto
+@bot.message_handler(content_types=['text'])
+def responder_texto(message):
+    try:
+        resultado = processar_mensagem(message.text, message.chat.id)
+    except Exception as e:
+        print(f"[ERRO processar_mensagem] {e}")
+        bot.send_message(message.chat.id, "Ocorreu um erro ao processar sua mensagem.")
+        return
+
+    # Se o seletor devolveu string (caso QA ou fallback), envia no Telegram
+    if isinstance(resultado, str) and resultado.strip():
+        bot.send_message(message.chat.id, resultado)
 
 # =========================
 # BOTÕES
