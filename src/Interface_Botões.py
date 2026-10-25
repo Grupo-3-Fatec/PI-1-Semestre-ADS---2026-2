@@ -94,7 +94,7 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def responder_texto(message):
     try:
-        resultado = processar_mensagem(message.text, message.chat.id)
+        resultado = processar_mensagem(message.text, message)
     except Exception as e:
         print(f"[ERRO processar_mensagem] {e}")
         bot.send_message(message.chat.id, "Ocorreu um erro ao processar sua mensagem.")
