@@ -5,7 +5,7 @@ import tratamento_de_dados as td
 def contrato_elegivel(df: pd.DataFrame, condicao: bool):
     """Função que retorna em um dataframe todos os clientes
     que não estão em falta com entrega de documentos"""
-    analise = df[['Cliente','NumeroProposta','PossuiGravacao','PossuiFoto']]
+    analise = df[['Atendente','Cliente','NumeroProposta','PossuiGravacao','PossuiFoto','PropostaTipo','PropostaStatus','ValorContrato','ValorTroco','TaxaPorc']]
     if condicao:
         filtrado = analise[(analise['PossuiFoto'] != False) & (analise['PossuiGravacao'] != False)]
     else:
