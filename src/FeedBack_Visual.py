@@ -1,6 +1,5 @@
 from Interface_Botões import bot
 
-
 def mensagem_de_espera(call):
     mensagem = bot.send_message(
         call.message.chat.id,
@@ -8,8 +7,10 @@ def mensagem_de_espera(call):
     )
     return mensagem
 
-bot delete_message(
-    mensagem.chat.id,
-    mensagem.message_id
-)
+# mensagem = mensagem_de_espera()
 
+def apagar_mensagem_de_espera(mensagem):
+    bot.delete_message(
+        mensagem.chat.id,
+        mensagem.message_id
+    )

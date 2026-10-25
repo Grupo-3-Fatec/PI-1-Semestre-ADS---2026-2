@@ -74,7 +74,7 @@ def verifica_loja(contratos: pd.DataFrame, taxa_margem: float, taxa_port: float)
             (contratos["TaxaPorc"] < taxa_margem))        
         ]
 
-    return contratos.to_excel('response.xlsx')
+    return contratos
 
 def comissao_loja(contratos: pd.DataFrame, taxa_margem_loja: float, taxa_port_loja: float) -> pd.DataFrame:
     """Retorna uma planilha com os contratos comissionaveis e seus

@@ -11,7 +11,7 @@ from cumprimeto_de_metas import cumprimento_metas
 from Return_Tabela import salvar_dataframe_csv
 from status_documento import contrato_elegivel
 from tratamento_de_dados import tratamento
-from Taxa_Comissão import comissao, receber_porcentagem, receber_taxa_portabilidade, meta_portabilidade, receber_metaportabilidade, receber_meta_margem
+import Taxa_Comissão as tc
 #Função importada para o comissionamento de atendentes
 from comissoes import verifica_atendentes, comissao_atendente, verifica_loja, comissao_loja
 from planilha_desserializada import df_dess
@@ -68,7 +68,7 @@ def Contratos_nao_elegiveis(call):
         "Você selecionou: Contratos Não Elegíveis."
     )
     resultado = contrato_elegivel(tratamento(), False)
-    #salvar_dataframe_csv(resultado, 'Contratos_nao_elegiveis.csv')
+    salvar_dataframe_csv(resultado, 'Contratos_nao_elegiveis.csv')
     caminho_completo = os.path.join('data', 'Contratos_nao_elegiveis.xlsx')
     resultado.to_excel(caminho_completo, index=False)
     tamanho_coluna(caminho_completo)
@@ -79,44 +79,21 @@ def cumprimento_metas_chamar(call):
         call.message.chat.id,
         "Você selecionou: Cumprimento de Metas."
     )
-    tabela = tratamento()
-    #esses dados estão como teste:
-    meta_geral_margem = 1000000
-    meta_geral_portabilidade = 2000000
-    porcentagem = 0.01
-    resultado_tabela = cumprimento_metas(tabela,meta_geral_margem,meta_geral_portabilidade,porcentagem)
-    #salvar_dataframe_csv(resultado_tabela, 'Cumprimento_metas.csv')
-    caminho_completo = os.path.join('data', 'Cumprimento_metas.xlsx')
-    resultado_tabela.to_excel(caminho_completo, index=False)
-    tamanho_coluna(caminho_completo)
-    enviar_arquivo(resultado_tabela,caminho_completo,call)
+    tc.metas_portabilidade(call)
 
 def comissao_loja_chamar(call):
     bot.send_message(
         call.message.chat.id,
         "Você selecionou: Calcular Comissionamento da Loja"
     )
-    #esses dados estão apenas como teste
-    teste = verifica_loja(contrato_elegivel(tratamento(), True), 0.0120, 0.0140)
-    resultado_tabela = comissao_loja(teste, 0.120, 0.0140)
-    #salvar_dataframe_csv(resultado_tabela, 'Comissao_Loja.csv')
-    caminho_completo = os.path.join('data', 'Comissao_Loja.xlsx')
-    resultado_tabela.to_excel(caminho_completo, index=False)
-    tamanho_coluna(caminho_completo)
-    enviar_arquivo(resultado_tabela,caminho_completo,call)
+    tc.taxa_margem(call)
 
 def comissao_atendente_chamar(call):
     bot.send_message(
         call.message.chat.id,
         "Você selecionou: Calcular Comissionamento do Atendente"
     )
-    teste = verifica_atendentes(contrato_elegivel(tratamento(), True), 0.0120, 0.0140)
-    resultado_tabela = comissao_atendente(teste, cumprimento_metas(tratamento(), 2000000, 1000000, 0.01))
-    #salvar_dataframe_csv(resultado_tabela, 'Comissao_Atendentes.csv')
-    caminho_completo = os.path.join('data', 'Comissao_Atendentes.xlsx')
-    resultado_tabela.to_excel(caminho_completo, index=False)
-    tamanho_coluna(caminho_completo)
-    enviar_arquivo(resultado_tabela,caminho_completo,call)
+    tc.chamar_atendente(call)
 
 def alerta_prazos(call):
     bot.send_message(
@@ -129,7 +106,7 @@ def alerta_prazos(call):
         call.message.chat.id,
         f"Relatório gerado com sucesso! {len(resultado_tabela)} contratos encontrados com mais de 15 dias."
     )
-    #salvar_dataframe_csv(resultado_tabela, 'Alerta_Prazos.csv')
+    salvar_dataframe_csv(resultado_tabela, 'Alerta_Prazos.csv')
     caminho_completo = os.path.join('data', 'Alerta_Prazos.xlsx')
     resultado_tabela.to_excel(caminho_completo, index=False)
     tamanho_coluna(caminho_completo)
@@ -149,7 +126,7 @@ def botao_clicado(call):
           Contratos_nao_elegiveis(call)
 
     elif call.data == "metas":
-        Comissao(call)
+
         cumprimento_metas_chamar(call)
 
     elif call.data == "comloja":
@@ -161,4 +138,4 @@ def botao_clicado(call):
     elif call.data == "prazos":
         alerta_prazos(call)
 
-    apagar_mensagem_de_espera(call, espera)
+    apagar_mensagem_de_espera(espera)

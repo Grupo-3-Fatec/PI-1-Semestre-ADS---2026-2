@@ -57,7 +57,7 @@ def criar_botoes():
             "Alerta de Prazos",
             callback_data="prazos"
         )
-
+    )
     return botoes
 
 

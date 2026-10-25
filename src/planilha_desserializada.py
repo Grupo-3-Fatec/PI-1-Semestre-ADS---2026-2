@@ -1,8 +1,6 @@
 #==== Importa a biblioteca pandas e o motor para o excel===#
 import pandas as pd
 
-#== CRIA UM DATAFRAME COM O ARQUIVO CSV SERIALIZADO ==#
-df = pd.read_csv('data_tratada.csv', sep=';')
 
 def df_dess(Dataframe):
     #== Desserializa os dados da planilha ==#
@@ -35,6 +33,9 @@ def df_dess(Dataframe):
     
     return Dataframe.style.apply(lambda _:zebrado, axis=None)
 
-teste = df_dess(df)
-teste.to_excel("Data.xlsx", index=False)
-print(teste)
+if __name__ == '__main__':
+    #== CRIA UM DATAFRAME COM O ARQUIVO CSV SERIALIZADO ==#
+    df = pd.read_csv('data_tratada.csv', sep=';')
+    teste = df_dess(df)
+    teste.to_excel("Data.xlsx", index=False)
+    print(teste)

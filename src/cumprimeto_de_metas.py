@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from tratamento_de_dados import tratamento
 
-def cumprimento_metas(df_tratada, meta_geral_margem, meta_geral_portabilidade, porcentagem):
+def cumprimento_metas(df_tratada, meta_geral_margem, meta_geral_portabilidade):
     # = Delimitando Tabela de Análise =
     analise = df_tratada[['Atendente','Cliente','ValorContrato','ValorTroco','PropostaTipo']]
 
@@ -26,22 +26,6 @@ def cumprimento_metas(df_tratada, meta_geral_margem, meta_geral_portabilidade, p
     # = Preenchendo Tabela de Retorno =
     planilha_metas['ValorVendasPortabilidade'] = vendas_portabilidade.round(2)
     planilha_metas['ValorVendasMargem'] = vendas_margem.round(2)
-
-    #------------------------------------------------------------------
-    # = Calculando Comissoes =
-    planilha_metas['ComissaoPortabilidade'] = (
-        planilha_metas['ValorVendasPortabilidade'] * porcentagem
-    ).round(2)
-
-    planilha_metas['ComissaoMargem'] = (
-        planilha_metas['ValorVendasMargem'] * porcentagem
-    ).round(2)
-
-    planilha_metas['ComissaoTotal'] = (
-        planilha_metas['ComissaoPortabilidade'] + planilha_metas['ComissaoMargem']
-    ).round(2)
-    #------------------------------------------------------------------
-    #adicionei isso
 
     planilha_metas['AtingiuMetaPortabilidade'] = np.where(planilha_metas['ValorVendasPortabilidade'] > meta_portabilidade,
                                                           'META DE PORTABILIDADE ATINGIDA',
