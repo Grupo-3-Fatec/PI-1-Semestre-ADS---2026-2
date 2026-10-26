@@ -5,31 +5,31 @@ import os
 
 # = Botão Cumprimento de Metas =
 
-def metas_portabilidade(call):
+def metas_portabilidade(botmessage):
     
     import Integracao_Botoes as ib
     bot = ib.bot
 
-    msg = bot.send_message(call.message.chat.id, 'Digite a Meta Geral da Portabilidade (1.0 --- 5.0): ')
-    bot.register_next_step_handler(msg, metas_margem, call)
+    msg = bot.send_message(botmessage.chat.id, 'Digite a Meta Geral da Portabilidade (1.0 --- 5.0): ')
+    bot.register_next_step_handler(msg, metas_margem, botmessage)
 
-def metas_margem(mensagem, call):
+def metas_margem(mensagem, botmessage):
     
     import Integracao_Botoes as ib
     bot = ib.bot
 
     portabilidade = parse_float(mensagem.text)
     if portabilidade == None:
-        bot.send_message(call.message.chat.id, 'Valor Inválido!')
+        bot.send_message(botmessage.chat.id, 'Valor Inválido!')
         return
-    msg = bot.send_message(call.message.chat.id, 'Digite a Meta Geral da Margem (1.0 --- 5.0): ')
-    bot.register_next_step_handler(msg, retorno, call, portabilidade)
+    msg = bot.send_message(botmessage.chat.id, 'Digite a Meta Geral da Margem (1.0 --- 5.0): ')
+    bot.register_next_step_handler(msg, retorno, botmessage, portabilidade)
 
-def retorno(mensagem, call, portabilidade):
+def retorno(mensagem, botmessage, portabilidade):
 
     margem = parse_float(mensagem.text)
     if margem == None:
-        bot.send_message(call.message.chat.id, 'Valor Inválido!')
+        bot.send_message(botmessage.chat.id, 'Valor Inválido!')
         return
 
     import Integracao_Botoes as ib
@@ -40,7 +40,7 @@ def retorno(mensagem, call, portabilidade):
     caminho_completo = os.path.join('data', 'Cumprimento_metas.xlsx')
     resultado_tabela.to_excel(caminho_completo, index=False)
     ib.tamanho_coluna(caminho_completo)
-    ib.enviar_arquivo(resultado_tabela, caminho_completo, call)
+    ib.enviar_arquivo(resultado_tabela, caminho_completo, botmessage)
 
 
 
@@ -48,31 +48,31 @@ def retorno(mensagem, call, portabilidade):
 
 # = Botão Comissao da Loja =
 
-def taxa_margem(call):
+def taxa_margem(botmessage):
     
     import Integracao_Botoes as ib
     bot = ib.bot
 
-    msg = bot.send_message(call.message.chat.id, 'Digite a Taxa da Margem (1.0 --- 5.0): ')
-    bot.register_next_step_handler(msg, taxa_portabilidade, call)
+    msg = bot.send_message(botmessage.chat.id, 'Digite a Taxa da Margem (1.0 --- 5.0): ')
+    bot.register_next_step_handler(msg, taxa_portabilidade, botmessage)
 
-def taxa_portabilidade(mensagem, call):
+def taxa_portabilidade(mensagem, botmessage):
     
     import Integracao_Botoes as ib
     bot = ib.bot
 
     portabilidade = parse_float(mensagem.text)
     if portabilidade == None:
-        bot.send_message(call.message.chat.id, 'Valor Inválido!')
+        bot.send_message(botmessage.chat.id, 'Valor Inválido!')
         return
-    msg = bot.send_message(call.message.chat.id, 'Digite a Taxa da Portabilidade (1.0 --- 5.0): ')
-    bot.register_next_step_handler(msg, retorno_taxas, call, portabilidade)
+    msg = bot.send_message(botmessage.chat.id, 'Digite a Taxa da Portabilidade (1.0 --- 5.0): ')
+    bot.register_next_step_handler(msg, retorno_taxas, botmessage, portabilidade)
 
-def retorno_taxas(mensagem, call, portabilidade):
+def retorno_taxas(mensagem, botmessage, portabilidade):
 
     margem = parse_float(mensagem.text)
     if margem == None:
-        bot.send_message(call.message.chat.id, 'Valor Inválido!')
+        bot.send_message(botmessage.message.chat.id, 'Valor Inválido!')
         return
 
     import Integracao_Botoes as ib
@@ -84,7 +84,7 @@ def retorno_taxas(mensagem, call, portabilidade):
     caminho_completo = os.path.join('data', 'Comissão_Loja.xlsx')
     resultado_tabela.to_excel(caminho_completo, index=False)
     ib.tamanho_coluna(caminho_completo)
-    ib.enviar_arquivo(resultado_tabela, caminho_completo, call)
+    ib.enviar_arquivo(resultado_tabela, caminho_completo, botmessage)
 
 
 
@@ -92,23 +92,23 @@ def retorno_taxas(mensagem, call, portabilidade):
 
 # = Botão Comissao dos Atendentes =
 
-def chamar_atendente(call):
+def chamar_atendente(botmessage):
     import Integracao_Botoes as ib
 
     infos = dict()
-    msg = mensagem_pedido(call, "taxa_margem")
-    ib.bot.register_next_step_handler(msg, receber_mensagem, call, infos, "taxa_margem")
+    msg = mensagem_pedido(botmessage, "taxa_margem")
+    ib.bot.register_next_step_handler(msg, receber_mensagem, botmessage, infos, "taxa_margem")
 
-def mensagem_pedido(call, info_receber: str):
+def mensagem_pedido(botmessage, info_receber: str):
     import Integracao_Botoes as ib
 
     match info_receber:
-        case "taxa_margem": return ib.bot.send_message(call.message.chat.id, "Digite a Taxa da Margem (1.0 --- 5.0):")
-        case "taxa_port": return ib.bot.send_message(call.message.chat.id, "Digite a Taxa da Portabilidade (1.0 --- 5.0):")
-        case "meta_margem": return ib.bot.send_message(call.message.chat.id, "Digite a Meta Geral da Portabilidade:")
-        case "meta_port": return ib.bot.send_message(call.message.chat.id, "Digite a Meta Geral da Margem:")
+        case "taxa_margem": return ib.bot.send_message(botmessage.chat.id, "Digite a Taxa da Margem (1.0 --- 5.0):")
+        case "taxa_port": return ib.bot.send_message(botmessage.chat.id, "Digite a Taxa da Portabilidade (1.0 --- 5.0):")
+        case "meta_margem": return ib.bot.send_message(botmessage.chat.id, "Digite a Meta Geral da Portabilidade:")
+        case "meta_port": return ib.bot.send_message(botmessage.chat.id, "Digite a Meta Geral da Margem:")
 
-def receber_mensagem(mensagem, call, infos: dict, info_receber: str):
+def receber_mensagem(mensagem, botmessage, infos: dict, info_receber: str):
     import Integracao_Botoes as ib
     
     match info_receber:
@@ -116,32 +116,32 @@ def receber_mensagem(mensagem, call, infos: dict, info_receber: str):
             valor = parse_float(mensagem.text)
             valor = valor / 100
             if valor == None:
-                ib.bot.send_message(call.message.chat.id, "Valor Inválido!")
+                ib.bot.send_message(botmessage.chat.id, "Valor Inválido!")
                 return
             infos[info_receber] = valor
-            msg = mensagem_pedido(call, "taxa_port")
-            ib.bot.register_next_step_handler(msg, receber_mensagem, call, infos, "taxa_port")
+            msg = mensagem_pedido(botmessage, "taxa_port")
+            ib.bot.register_next_step_handler(msg, receber_mensagem, botmessage, infos, "taxa_port")
         case "taxa_port":
             valor = parse_float(mensagem.text)
             valor = valor / 100
             if valor == None:
-                ib.bot.send_message(call.message.chat.id, "Valor Inválido!")
+                ib.bot.send_message(botmessage.chat.id, "Valor Inválido!")
                 return
             infos[info_receber] = valor
-            msg = mensagem_pedido(call, "meta_margem")
-            ib.bot.register_next_step_handler(msg, receber_mensagem, call, infos, "meta_margem")
+            msg = mensagem_pedido(botmessage, "meta_margem")
+            ib.bot.register_next_step_handler(msg, receber_mensagem, botmessage, infos, "meta_margem")
         case "meta_margem":
             valor = parse_float(mensagem.text)
             if valor == None:
-                ib.bot.send_message(call.message.chat.id, "Valor Inválido!")
+                ib.bot.send_message(botmessage.chat.id, "Valor Inválido!")
                 return
             infos[info_receber] = valor
-            msg = mensagem_pedido(call, "meta_port")
-            ib.bot.register_next_step_handler(msg, receber_mensagem, call, infos, "meta_port")
+            msg = mensagem_pedido(botmessage, "meta_port")
+            ib.bot.register_next_step_handler(msg, receber_mensagem, botmessage, infos, "meta_port")
         case "meta_port":
             valor = parse_float(mensagem.text)
             if valor == None:
-                ib.bot.send_message(call.message.chat.id, "Valor Inválido!")
+                ib.bot.send_message(botmessage.chat.id, "Valor Inválido!")
                 return
             infos[info_receber] = valor
             dados = td.tratamento()
@@ -151,7 +151,7 @@ def receber_mensagem(mensagem, call, infos: dict, info_receber: str):
             caminho_completo = os.path.join('data', 'Comissao_Atendentes.xlsx')
             resultado_tabela.to_excel(caminho_completo, index=False)
             ib.tamanho_coluna(caminho_completo)
-            ib.enviar_arquivo(resultado_tabela, caminho_completo, call)
+            ib.enviar_arquivo(resultado_tabela, caminho_completo, botmessage)
 
 
 def parse_float(string: str):
