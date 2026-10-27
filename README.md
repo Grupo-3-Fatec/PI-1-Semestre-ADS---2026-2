@@ -17,7 +17,10 @@
 </h5>
 
 >**Status do Projeto:** **WIP**
->**Video do Projeto:** https://drive.google.com/file/d/1xjZ01ivSRXIYk5Uyf3epkyIv_1SApwsc/view
+>
+>**Vídeo do Projeto Sprint 1:** https://drive.google.com/file/d/1FpCi3CjFcdRDonnCMljXBkNtvOZUyb60/view
+>
+>**Vídeo do Projeto Sprint 2:** https://drive.google.com/file/d/1xjZ01ivSRXIYk5Uyf3epkyIv_1SApwsc/view
 
 ## Desafio <a id='desafio'></a>
 O desafio dessa A.P.I. consiste em utilizar a linguagem Python para extrair insights a partir de dados em uma planilha e integrar isso em um chatbot do telegram. Esse bot deve ser capaz de seguir comandos, conversar naturalmente com o usuário e possuir voz (assistente virtual com voz). Não foi permitido a utilização de nenhuma API externa (e.g. ChatGPT API).
