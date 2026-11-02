@@ -41,7 +41,6 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 |8|Média|Como gerente, quero que as planilhas retornem formatadas (.xlsx), para melhor leitura dos dados.|8|2|
 |9|Baixa|Como gerente, quero feedback visual (tipo loading screen) de que o bot está processando a mensagem, para ter feedback melhor do processo do bot.|5|2|
 |10|Média|Como gerente, quero poder conversar com o bot, para aumentar a acessibilidade e eficiência das operações.|89|3|
-|11|Baixa|Como gerente, quero que o bot reconheça fala e execute comandos falados, para aumentar as formas de realizar operações|17|3|
 ---
 ## DoR - Definition of Ready <a id='ready'></a>
 - **User story adequada:** Segue o formato "Como [tipo de usuário], quero [funcionalidade], para que [benefício]".
