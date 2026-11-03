@@ -53,13 +53,12 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 - **Todos os Critérios de Aceitação foram atendidos:** A funcionalidade comporta-se exatamente como o esperado.
 - **Código revisado e aprovado:** Pelo menos um colega de time revisou e aprovou o pull request.
 - **Código commitado no Git:** Integrado à branch principal via Pull Request.
-- **Código segue padrões e convenções:** Linter(Pylint) e formatação ok.
 - **Aprovado pelo PO:** O PO validou a entrega e concorda que está apropriada para implementação.
 ---
 ## Cronograma de Sprints <a id='sprint'></a>
 - **07/09 à 27/09**: [**Sprint 1**](./docs/sprint_1/Readme.md)
 - **05/10 à 25/10**: [**Sprint 2**](./docs/sprint_2/readme.md)
-- **02/11 à 22/11**: **Sprint 3**
+- **02/11 à 22/11**: [**Sprint 3**](./docs/sprint_3/README.md)
 ---
 ## Technologias Utilizadas <a id='tech'></a>
 <h5 align='center'>
