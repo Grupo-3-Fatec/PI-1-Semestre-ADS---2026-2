@@ -37,3 +37,4 @@ Nessa sprint, foram desenvolvidas novas funcionalidades de criação de planilha
 - **Código segue padrões e convenções:** Linter(Pylint) e formatação ok.
 - **Aprovado pelo PO:** O PO validou a entrega e concorda que está apropriada para implementação.
 ---
+**Vídeo do Projeto Sprint 2:** https://drive.google.com/file/d/1xjZ01ivSRXIYk5Uyf3epkyIv_1SApwsc/view

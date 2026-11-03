@@ -17,7 +17,10 @@
 </h5>
 
 >**Status do Projeto:** **WIP**
->**Video do Projeto:** https://drive.google.com/file/d/1xjZ01ivSRXIYk5Uyf3epkyIv_1SApwsc/view
+>
+>**Vídeo do Projeto Sprint 1:** https://drive.google.com/file/d/1FpCi3CjFcdRDonnCMljXBkNtvOZUyb60/view
+>
+>**Vídeo do Projeto Sprint 2:** https://drive.google.com/file/d/1xjZ01ivSRXIYk5Uyf3epkyIv_1SApwsc/view
 
 ## Desafio <a id='desafio'></a>
 O desafio dessa A.P.I. consiste em utilizar a linguagem Python para extrair insights a partir de dados em uma planilha e integrar isso em um chatbot do telegram. Esse bot deve ser capaz de seguir comandos, conversar naturalmente com o usuário e possuir voz (assistente virtual com voz). Não foi permitido a utilização de nenhuma API externa (e.g. ChatGPT API).
@@ -38,7 +41,6 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 |8|Média|Como gerente, quero que as planilhas retornem formatadas (.xlsx), para melhor leitura dos dados.|8|2|
 |9|Baixa|Como gerente, quero feedback visual (tipo loading screen) de que o bot está processando a mensagem, para ter feedback melhor do processo do bot.|5|2|
 |10|Média|Como gerente, quero poder conversar com o bot, para aumentar a acessibilidade e eficiência das operações.|89|3|
-|11|Baixa|Como gerente, quero que o bot reconheça fala e execute comandos falados, para aumentar as formas de realizar operações|17|3|
 ---
 ## DoR - Definition of Ready <a id='ready'></a>
 - **User story adequada:** Segue o formato "Como [tipo de usuário], quero [funcionalidade], para que [benefício]".
