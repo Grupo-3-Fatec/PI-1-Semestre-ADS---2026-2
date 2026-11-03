@@ -36,4 +36,4 @@ O desafio da 1° Sprint foi criar um chatbot para organização de planilhas sob
 - **Código segue padrões e convenções:** Linter(Pylint) e formatação ok.
 - **Aprovado pelo PO:** O PO validou a entrega e concorda que está apropriada para implementação.
 ---
-
+**Vídeo do Projeto Sprint 1:** https://drive.google.com/file/d/1FpCi3CjFcdRDonnCMljXBkNtvOZUyb60/view
