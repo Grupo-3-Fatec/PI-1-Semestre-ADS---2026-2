@@ -6,6 +6,7 @@ def lm_config(model="gemma4:e2b"):
     model="ollama/gemma4:e2b",
     api_key="ollama",
     temperature=0.7,
+    max_tokens=2000
     )
     dspy.configure(lm=gemma4)
     return gemma4
