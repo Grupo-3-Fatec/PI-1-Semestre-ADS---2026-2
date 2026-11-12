@@ -41,6 +41,8 @@ def retorno(mensagem, botmessage, portabilidade):
 
     import Integracao_Botoes as ib
     bot = ib.bot
+
+    id_mensagens.append(mensagem.message_id)
     
     margem = parse_float(mensagem.text)
     if margem == None:
