@@ -14,7 +14,7 @@ bot = telebot.TeleBot(TOKEN)
 from Integracao_Botoes import botao_clicado
 
 #Adicionado pela feat(REB-22)
-from seletor_de_funcao import processar_mensagem
+from seletor_de_funcao import processar_mensagem, processar_mensagem_audio
 
 # =========================
 # FUNÇÃO: CRIAR BOTÕES
@@ -103,6 +103,23 @@ def responder_texto(message):
     # Se o seletor devolveu string (caso QA ou fallback), envia no Telegram
     if isinstance(resultado, str) and resultado.strip():
         bot.send_message(message.chat.id, resultado)
+
+
+@bot.message_handler(content_types=['audio','voice'])
+def responder_audio(message):
+    try:
+
+        if message.content_type == 'audio':
+            bot.send_message(message.chat.id, 'Arquivos de áudios não são permitidos. Utilize o gravador do chat.')
+            return
+
+        resultado = processar_mensagem_audio(message.voice)
+        
+    except Exception as e:
+        print(f'[ERRO processar_mensagem_audio] {e}')
+        bot.send_message(message.chat.id, 'Ocorreu um erro ao processar o audio')
+        return
+
 
 # =========================
 # BOTÕES
