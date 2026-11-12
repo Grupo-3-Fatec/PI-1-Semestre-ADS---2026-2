@@ -124,8 +124,13 @@ def responder_audio(message):
             arquivo.write(file)
             file_path = arquivo.name
 
-        return processar_mensagem_audio(file_path)
-        
+        #-------------------------------------------
+        texto = processar_mensagem_audio(file_path)
+        resultado = processar_mensagem(texto, message)
+        if isinstance(resultado, str) and resultado.strip():
+            bot.send_message(message.chat.id, resultado)
+        #-------------------------------------------
+
     except Exception as e:
         print(f'[ERRO processar_mensagem_audio] {e}')
         bot.send_message(message.chat.id, 'Ocorreu um erro ao processar o audio')
@@ -149,6 +154,7 @@ def botao(call):
 
 def iniciar_bot():
     print("Bot iniciado...")
+    #bot.remove_webhook() /// o meu precisou dessa linha para funcionar, mas não sei se é necessário (talvez seja erro do meu pc)
     bot.infinity_polling()
 
 
