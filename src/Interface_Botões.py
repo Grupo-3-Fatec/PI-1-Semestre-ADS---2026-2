@@ -1,6 +1,7 @@
 import telebot
-from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 import os
+import tempfile
+from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 # =========================
 # CONFIG
@@ -113,7 +114,17 @@ def responder_audio(message):
             bot.send_message(message.chat.id, 'Arquivos de áudios não são permitidos. Utilize o gravador do chat.')
             return
 
-        resultado = processar_mensagem_audio(message.voice)
+        file_id = message.voice.file_id
+
+        file_path = bot.get_file(file_id).file_path
+
+        file = bot.download_file(file_path)
+
+        with tempfile.NamedTemporaryFile(suffix='.ogg', delete=False) as arquivo:
+            arquivo.write(file)
+            file_path = arquivo.name
+
+        return processar_mensagem_audio(file_path)
         
     except Exception as e:
         print(f'[ERRO processar_mensagem_audio] {e}')
