@@ -69,11 +69,34 @@ O reBOT têm como capacidades, conversar com o usuário, buscar dados na planilh
 </h5>
 
 ---
+## Manual de Instalação <a id='instalacao'></a>
+
+> **DEPENDÊNCIAS**
+> - <a href='https://www.python.org/downloads/'>Python</a> >=3.13.5 (`python --version`)
+> - <a href='https://ollama.com/download'>Ollama</a> >= 0.40.7 (`ollama --version`)
+> - <a href='https://git-scm.com/install/'>Git</a> >= 2.50.0 (`git --version`)
+
+> **CLONAR REPOSITÓRIO**
+> - Abra o terminal no diretório onde irá clonar
+> - Clone o repositório: `git clone https://github.com/Grupo-3-Fatec/PI-1-Semestre-ADS---2026-2.git`
+> - Entre no diretório novo `cd`
+
+> **CONFIGURAÇÃO DO PROJETO**
+> - Entre no Telegram
+> - <a href='https://telegram.me/BotFather'>Crie um bot</a> ou pegue o Token de um existente
+> - Crie o arquivo `.env` na raíz do projeto
+> - Escreva `BOT_TOKEN=` + o Token do bot
+> - Abra o Ollama
+> - Instale o modelo `gemma4:e2b`
+
 ## Manual do Usuário <a id='user'></a>
 
->**Acesse: <a href="https://t.me/Rebootrebot_bot">https://t.me/Rebootrebot_bot</a>**
->**Digite /start para iniciar a conversa**
->**Interaja com a mensagem do bot**
+> **INICIALIZAR O BOT**
+> - Entre na raíz do projeto
+> - Execute `pip install -r src/requirements.txt`
+> - Execute `py src/main.py`
+> - Acesse o Chat do Bot
+> - Envie `/start` ou faça uma pergunta.
 
 ---
 ## Equipe <a id='team'></a>
