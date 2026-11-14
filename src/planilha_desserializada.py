@@ -1,18 +1,8 @@
 #==== Importa a biblioteca pandas e o motor para o excel===#
 import pandas as pd
 
-#== CRIA UM DATAFRAME COM O ARQUIVO CSV SERIALIZADO ==#
-df = pd.read_csv('data/data_tratada.csv')
-
-def salvar_dataframe_excel(Dataframe, nome_arquivo):
-    #== Desserializa os dados da planilha e devolve em um arquivo excel ==#
-    
-    #== Verifica se o dataframe não é vazio ==#
-    if Dataframe is None or Dataframe.empty:
-        #ADICIONAR MENSAGEM DE ERRO NO TELEGRAM
-        return None
-    
-    
+def df_dess(Dataframe):
+    #== Desserializa os dados da planilha ==#  
     #=== Transforma dados que estão em True/False para SIM e NÃO ===#
     Dataframe = Dataframe.replace(True, "SIM").replace(False, "NÃO")
     
@@ -39,28 +29,14 @@ def salvar_dataframe_excel(Dataframe, nome_arquivo):
     #=== Adiciona % no final do texto em cada linha ===#
     Dataframe[ValoresP] = Dataframe[ValoresP] + '%'
     
-    #===== | ESTILIZAÇÃO | =====#
+    return Dataframe
 
-    zebrado = pd.DataFrame("background-color: #F2F0EF",
-                           index=Dataframe.index, columns=Dataframe.columns)
-    # "#F2F0EF" Coloca cor cinza em todas as linhas
-    
-    zebrado.iloc[1::2, :] = "background-color: #d8bfd8"
-    # "#d8bfd8" muda a cor da linha para lilas a cada 2 linhas
-    
-    #== | Aplica o estilo ao dataframe | ==#
-    Dataframe = Dataframe.style.apply(lambda _:zebrado, axis=None)
+"""
+if __name__ == "__main__":
 
-    #==== | Caminho | ====#
-    caminho = f"data/{nome_arquivo}"
+#== CRIA UM DATAFRAME COM O ARQUIVO CSV SERIALIZADO ==#
+    df = pd.read_csv('data/data_tratada.csv', sep = ';')
 
-    #== sep=';' (Delimitação de Colunas) ==#
-    #== encoding='utf-8-sig' (Para reconhecer acentuação) ==#
-    
-    Dataframe.to_excel(caminho, encoding='utf-8-sig', sep=';', index=False)
-    #ADICIONAR MENSAGEM AO TELEGRAM RETORNANDO A PLANILHA
-    return caminho
-
-
-teste = salvar_dataframe_excel(df,"teste.xlsx")
-print(teste)
+    teste = df_dess(df)
+    print(teste)
+"""
