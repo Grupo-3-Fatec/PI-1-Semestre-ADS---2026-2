@@ -1,6 +1,8 @@
 import re
+import os
 import dspy
 from pypdf import PdfReader
+from faster_whisper import WhisperModel
 from config import lm_config
 from Integracao_Botoes import (
     Contratos_elegiveis,
@@ -13,6 +15,26 @@ from Integracao_Botoes import (
 
 
 lm_config()
+
+def processar_mensagem_audio(file_path):
+    """Processa o audio e retorna uma string com a fala interpretada pelo Faster-Whisper"""
+
+    model = WhisperModel(
+        "small",
+        device="cpu",
+        compute_type="int8"
+    )
+
+    segments, info = model.transcribe(file_path, language="pt", vad_filter=True, condition_on_previous_text=False)
+
+    text = ''
+
+    for segment in segments:
+        text += segment.text
+
+    os.remove(file_path)
+    
+    return text
 
 # Essa função extrai e fragmenta o texto do PDF
 def carregar_textos_pdf(caminho_pdf: str) -> list[str]:
@@ -123,12 +145,7 @@ def processar_mensagem(mensagem: str, message):
 
     return None
 
-# Isso é só teste
-if __name__=="__main__":
-    mock_message = {"chat_id": 0} 
-    
-    print(processar_mensagem("Quem matou Osama Bin Laden?", mock_message))
-    print(processar_mensagem("quero ver os contratos não elegiveis", mock_message))
 
+# Isso é só teste
 # Essa linha verifica o raciocínio racional
 dspy.inspect_history(n=1)

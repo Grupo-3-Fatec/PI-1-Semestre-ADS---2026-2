@@ -1,41 +1,49 @@
+#==== Importa a biblioteca pandas e o motor para o excel===#
 import pandas as pd
+from openpyxl.utils import get_column_letter
+from planilha_desserializada import df_dess
 
-def salvar_dataframe_csv(df_tratada, nome_arquivo):
-    """
-    Recebe os dados tratados
-    Retorna o arquivo CSV.
-    """
-    #Verifica se o dataframe não é vazio
-    if df_tratada is None or df_tratada.empty:
+#== CRIA UM DATAFRAME COM O ARQUIVO CSV SERIALIZADO ==#
+df = pd.read_csv('data/data_tratada.csv', sep = ';')
+
+def salvar_dataframe_csv(Dataframe, nome_arquivo):
+    #== Devolve planilha em um arquivo excel ==#
+    
+    #== Aplica a desserialização no dataframe ==#
+    Dataframe = df_dess(Dataframe)
+
+    #== Verifica se o dataframe não é vazio ==#
+    if Dataframe is None or Dataframe.empty:
         #ADICIONAR MENSAGEM DE ERRO NO TELEGRAM
         return None
+    
+    #===== | ESTILIZAÇÃO | =====#
 
-    # Adiciona 'data/' na frente do nome do arquivo
+    zebrado = pd.DataFrame("background-color: #F2F0EF; border: 1px solid white",
+                           index=Dataframe.index, columns=Dataframe.columns)
+    # "#F2F0EF" Coloca cor cinza em todas as linhas
+    
+    zebrado.iloc[1::2, :] = "background-color: #d8bfd8; border: 1px solid white"
+    # "#d8bfd8" muda a cor da linha para lilas a cada 2 linhas
+    
+    #== | Aplica o estilo ao dataframe | ==#
+    Dataframe = Dataframe.style.apply(lambda _:zebrado, axis=None)
+
+    #==== | Caminho | ====#
     caminho = f"data/{nome_arquivo}"
 
-    # - sep=';' (Delimitação de Colunas)
-    # - encoding='utf-8-sig' (Para reconhecer acentuação)
-    df_tratada.to_csv(caminho, index=False, sep=';', encoding='utf-8-sig')
-    #ADICIONAR MENSAGEM AO TELEGRAM RETORNANDO A PLANILHA
-    return caminho
+    tabela = Dataframe.data
+    with pd.ExcelWriter(caminho, engine="openpyxl") as writer:
+        Dataframe.to_excel(writer, index=False, sheet_name="Dados")
+        planilha = writer.sheets["Dados"]
 
-# Teste local
-'''if __name__ == "__main__":
-    dados_teste = pd.DataFrame({
-        'Atendente': ['ALINE', 'CARLOS'],
-        'Valor': [1000, 2000]
-    })
+    #== | Ajusta o tamanho da coluna | ==#
+        for i, coluna in enumerate(tabela.columns, start=1):
+            maior = max(tabela[coluna].astype(str).str.len().max(), len(str(coluna)))
+            planilha.column_dimensions[get_column_letter(i)].width = maior + 2
     
-    # Vai salvar direto em: data/relatorio_final.csv
-    salvar_dataframe_csv(dados_teste, "relatorio_final.csv")
-'''
-#A função poderá ser chamada a quantiade de vezes que for nescessário, independente da
-# quantidade de perguntas que vamos responder no telegram
-#Exemplo de chamada de função para 3 DFs:
-
-#salvar_dataframe_csv(df_pergunta_1, "data/pergunta_01.csv")
-#salvar_dataframe_csv(df_pergunta_2, "data/pergunta_02.csv")
-#salvar_dataframe_csv(df_pergunta_3, "data/pergunta_03.csv")
-
-#Syntaxe de execução da função: salvar_dataframe_csv
-# ("o nome da variável que esta o dataframe", "nome da planilha.csv")
+    return caminho
+"""
+if __name__ == "__main__":
+    teste = salvar_dataframe_csv(df,"teste.xlsx")
+    print(teste)"""
