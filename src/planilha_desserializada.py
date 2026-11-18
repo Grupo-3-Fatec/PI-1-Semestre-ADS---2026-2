@@ -2,7 +2,7 @@
 import pandas as pd
 
 def df_dess(Dataframe):
-    #== Desserializa os dados da planilha ==#  
+    #== Desserializa os dados da planilha e devolve em um arquivo excel ==#  
     #=== Transforma dados que estão em True/False para SIM e NÃO ===#
     Dataframe = Dataframe.replace(True, "SIM").replace(False, "NÃO")
     
@@ -13,6 +13,10 @@ def df_dess(Dataframe):
     Colunas_Str = ['Atendente', 'Cliente', 'PropostaTipo', 'PropostaStatus',
                     'BancoDigitado', 'BancoPortado', 'OrigemCaptacao', 'Orgao']
     
+    #== Vê quais dessas colunas tem no dataframe e filtra a lista ==#
+    Valores = [col for col in Valores if col in Dataframe.columns]
+    Colunas_Str = [col for col in Colunas_Str if col in Dataframe.columns]
+    
     #== Garante que todas as colunas com texto são strings ==#
     Dataframe[Colunas_Str] = Dataframe[Colunas_Str].astype(str)
     
@@ -20,6 +24,10 @@ def df_dess(Dataframe):
     ValoresR = ['ValorContrato', 'ValorParcela', 'ValorTroco']
     ValoresP = ['TaxaPorc', 'TaxaCET']
 
+    #== Vê quais dessas colunas tem no dataframe e filtra a lista ==#
+    ValoresR = [col for col in ValoresR if col in Dataframe.columns]
+    ValoresP = [col for col in ValoresP if col in Dataframe.columns]
+        
     #== Transforma as colunas em string e muda '.' para ',' ==#
     Dataframe[Valores] = Dataframe[Valores].astype(str)
     Dataframe[Valores] = Dataframe[Valores].replace(r'\.', ',', regex=True)
@@ -28,7 +36,7 @@ def df_dess(Dataframe):
     Dataframe[ValoresR] = 'R$' + ' ' + Dataframe[ValoresR]
     #=== Adiciona % no final do texto em cada linha ===#
     Dataframe[ValoresP] = Dataframe[ValoresP] + '%'
-    
+
     return Dataframe
 
 """
