@@ -68,8 +68,6 @@ def Contratos_nao_elegiveis(message):
     resultado = contrato_elegivel(tratamento(), False)
     salvar_dataframe_csv(resultado, 'Contratos_nao_elegiveis.xlsx')
     caminho_completo = os.path.join('data', 'Contratos_nao_elegiveis.xlsx')
-    resultado.to_excel(caminho_completo, index=False)
-    tamanho_coluna(caminho_completo)
     enviar_arquivo(resultado,caminho_completo,message)  
 
 def cumprimento_metas_chamar(message):
@@ -109,8 +107,6 @@ def alerta_prazos(message):
     )
     salvar_dataframe_csv(resultado_tabela, 'Alerta_Prazos.xlsx')
     caminho_completo = os.path.join('data', 'Alerta_Prazos.xlsx')
-    resultado_tabela.to_excel(caminho_completo, index=False)
-    tamanho_coluna(caminho_completo)
     enviar_arquivo(resultado_tabela,caminho_completo,message)
 
 def botao_clicado(call: telebot.types.CallbackQuery):
