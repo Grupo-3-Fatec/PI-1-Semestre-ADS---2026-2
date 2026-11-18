@@ -77,21 +77,24 @@ def cumprimento_metas_chamar(message):
         message.chat.id,
         "Você selecionou: Cumprimento de Metas."
     )
-    tc.metas_portabilidade(message)
+    id_mensagens_metas = []
+    tc.metas_portabilidade(message, id_mensagens_metas))
 
 def comissao_loja_chamar(message):
     bot.send_message(
         message.chat.id,
         "Você selecionou: Calcular Comissionamento da Loja"
     )
-    tc.taxa_margem(message)
+    id_mensagens_loja = []
+    tc.taxa_margem(message, id_mensagens_loja)
 
 def comissao_atendente_chamar(message):
     bot.send_message(
         message.chat.id,
         "Você selecionou: Calcular Comissionamento do Atendente"
     )
-    tc.chamar_atendente(message)
+    id_mensagens_atendentes = []
+    tc.chamar_atendente(message, id_mensagens_atendentes)
 
 def alerta_prazos(message):
     bot.send_message(
