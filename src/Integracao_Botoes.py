@@ -56,10 +56,8 @@ def Contratos_elegiveis(message):
         )
     resultado = contrato_elegivel(tratamento(), True)
     #Comando para enviar o arquivo em csv antigamente
-    #salvar_dataframe_csv(resultado, 'Contratos_elegiveis.csv')
+    salvar_dataframe_csv(resultado, 'Contratos_elegiveis.xlsx')
     caminho_completo = os.path.join('data', 'Contratos_elegiveis.xlsx')
-    resultado.to_excel(caminho_completo, index=False)
-    tamanho_coluna(caminho_completo)
     enviar_arquivo(resultado,caminho_completo,message)
 
 def Contratos_nao_elegiveis(message):
@@ -68,7 +66,7 @@ def Contratos_nao_elegiveis(message):
         "Você selecionou: Contratos Não Elegíveis."
     )
     resultado = contrato_elegivel(tratamento(), False)
-    salvar_dataframe_csv(resultado, 'Contratos_nao_elegiveis.csv')
+    salvar_dataframe_csv(resultado, 'Contratos_nao_elegiveis.xlsx')
     caminho_completo = os.path.join('data', 'Contratos_nao_elegiveis.xlsx')
     resultado.to_excel(caminho_completo, index=False)
     tamanho_coluna(caminho_completo)
@@ -106,7 +104,7 @@ def alerta_prazos(message):
         message.chat.id,
         f"Relatório gerado com sucesso! {len(resultado_tabela)} contratos encontrados com mais de 15 dias."
     )
-    salvar_dataframe_csv(resultado_tabela, 'Alerta_Prazos.csv')
+    salvar_dataframe_csv(resultado_tabela, 'Alerta_Prazos.xlsx')
     caminho_completo = os.path.join('data', 'Alerta_Prazos.xlsx')
     resultado_tabela.to_excel(caminho_completo, index=False)
     tamanho_coluna(caminho_completo)
