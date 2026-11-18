@@ -75,24 +75,23 @@ def cumprimento_metas_chamar(message):
         message.chat.id,
         "Você selecionou: Cumprimento de Metas."
     )
-    id_mensagens_metas = []
-    tc.metas_portabilidade(message, id_mensagens_metas))
+
+    tc.metas_portabilidade(message)
 
 def comissao_loja_chamar(message):
     bot.send_message(
         message.chat.id,
         "Você selecionou: Calcular Comissionamento da Loja"
     )
-    id_mensagens_loja = []
-    tc.taxa_margem(message, id_mensagens_loja)
+    tc.taxa_margem(message)
 
 def comissao_atendente_chamar(message):
     bot.send_message(
         message.chat.id,
         "Você selecionou: Calcular Comissionamento do Atendente"
     )
-    id_mensagens_atendentes = []
-    tc.chamar_atendente(message, id_mensagens_atendentes)
+
+    tc.chamar_atendente(message)
 
 def alerta_prazos(message):
     bot.send_message(
@@ -123,7 +122,6 @@ def botao_clicado(call: telebot.types.CallbackQuery):
           Contratos_nao_elegiveis(call.message)
 
     elif call.data == "metas":
-
         cumprimento_metas_chamar(call.message)
 
     elif call.data == "comloja":
