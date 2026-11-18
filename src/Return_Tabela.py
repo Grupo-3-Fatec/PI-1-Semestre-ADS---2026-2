@@ -1,5 +1,6 @@
 #==== Importa a biblioteca pandas e o motor para o excel===#
 import pandas as pd
+from openpyxl.utils import get_column_letter
 from planilha_desserializada import df_dess
 
 #== CRIA UM DATAFRAME COM O ARQUIVO CSV SERIALIZADO ==#
@@ -18,11 +19,11 @@ def salvar_dataframe_csv(Dataframe, nome_arquivo):
     
     #===== | ESTILIZAÇÃO | =====#
 
-    zebrado = pd.DataFrame("background-color: #F2F0EF",
+    zebrado = pd.DataFrame("background-color: #F2F0EF; border: 1px solid white",
                            index=Dataframe.index, columns=Dataframe.columns)
     # "#F2F0EF" Coloca cor cinza em todas as linhas
     
-    zebrado.iloc[1::2, :] = "background-color: #d8bfd8"
+    zebrado.iloc[1::2, :] = "background-color: #d8bfd8; border: 1px solid white"
     # "#d8bfd8" muda a cor da linha para lilas a cada 2 linhas
     
     #== | Aplica o estilo ao dataframe | ==#
@@ -31,13 +32,18 @@ def salvar_dataframe_csv(Dataframe, nome_arquivo):
     #==== | Caminho | ====#
     caminho = f"data/{nome_arquivo}"
 
-    #== sep=';' (Delimitação de Colunas) ==#
-    #== encoding='utf-8-sig' (Para reconhecer acentuação) ==#
-    
-    Dataframe.to_excel(caminho, index=False)
-    #ADICIONAR MENSAGEM AO TELEGRAM RETORNANDO A PLANILHA
-    return caminho
+    tabela = Dataframe.data
+    with pd.ExcelWriter(caminho, engine="openpyxl") as writer:
+        Dataframe.to_excel(writer, index=False, sheet_name="Dados")
+        planilha = writer.sheets["Dados"]
 
+    #== | Ajusta o tamanho da coluna | ==#
+        for i, coluna in enumerate(tabela.columns, start=1):
+            maior = max(tabela[coluna].astype(str).str.len().max(), len(str(coluna)))
+            planilha.column_dimensions[get_column_letter(i)].width = maior + 2
+    
+    return caminho
+"""
 if __name__ == "__main__":
     teste = salvar_dataframe_csv(df,"teste.xlsx")
-    print(teste)
+    print(teste)"""
