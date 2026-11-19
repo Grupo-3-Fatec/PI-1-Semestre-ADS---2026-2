@@ -1,6 +1,7 @@
 import telebot
-from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 import os
+import tempfile
+from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 # =========================
 # CONFIG
@@ -14,7 +15,7 @@ bot = telebot.TeleBot(TOKEN)
 from Integracao_Botoes import botao_clicado
 
 #Adicionado pela feat(REB-22)
-from seletor_de_funcao import processar_mensagem
+from seletor_de_funcao import processar_mensagem, processar_mensagem_audio
 
 # =========================
 # FUNÇÃO: CRIAR BOTÕES
@@ -104,6 +105,38 @@ def responder_texto(message):
     if isinstance(resultado, str) and resultado.strip():
         bot.send_message(message.chat.id, resultado)
 
+
+@bot.message_handler(content_types=['audio','voice'])
+def responder_audio(message):
+    try:
+
+        if message.content_type == 'audio':
+            bot.send_message(message.chat.id, 'Arquivos de áudios não são permitidos. Utilize o gravador do chat.')
+            return
+
+        file_id = message.voice.file_id
+
+        file_path = bot.get_file(file_id).file_path
+
+        file = bot.download_file(file_path)
+
+        with tempfile.NamedTemporaryFile(suffix='.ogg', delete=False) as arquivo:
+            arquivo.write(file)
+            file_path = arquivo.name
+
+        #-------------------------------------------
+        texto = processar_mensagem_audio(file_path)
+        resultado = processar_mensagem(texto, message)
+        if isinstance(resultado, str) and resultado.strip():
+            bot.send_message(message.chat.id, resultado)
+        #-------------------------------------------
+
+    except Exception as e:
+        print(f'[ERRO processar_mensagem_audio] {e}')
+        bot.send_message(message.chat.id, 'Ocorreu um erro ao processar o audio')
+        return
+
+
 # =========================
 # BOTÕES
 # =========================
@@ -121,6 +154,7 @@ def botao(call):
 
 def iniciar_bot():
     print("Bot iniciado...")
+    #bot.remove_webhook() /// o meu precisou dessa linha para funcionar, mas não sei se é necessário (talvez seja erro do meu pc)
     bot.infinity_polling()
 
 

@@ -36,10 +36,8 @@ def retorno(mensagem, botmessage, portabilidade):
     bot = ib.bot
     
     resultado_tabela = cm.cumprimento_metas(td.tratamento(), margem, portabilidade)
-    ib.salvar_dataframe_csv(resultado_tabela, 'Cumprimento_metas.csv')
+    ib.salvar_dataframe_csv(resultado_tabela, 'Cumprimento_metas.xlsx')
     caminho_completo = os.path.join('data', 'Cumprimento_metas.xlsx')
-    resultado_tabela.to_excel(caminho_completo, index=False)
-    ib.tamanho_coluna(caminho_completo)
     ib.enviar_arquivo(resultado_tabela, caminho_completo, botmessage)
 
 
@@ -80,10 +78,8 @@ def retorno_taxas(mensagem, botmessage, portabilidade):
     
     tabela = ib.verifica_loja(td.tratamento(), margem, portabilidade)
     resultado_tabela = ib.comissao_loja(tabela, margem, portabilidade)
-    ib.salvar_dataframe_csv(resultado_tabela, 'Comissão_Loja.csv')
+    ib.salvar_dataframe_csv(resultado_tabela, 'Comissão_Loja.xlsx')
     caminho_completo = os.path.join('data', 'Comissão_Loja.xlsx')
-    resultado_tabela.to_excel(caminho_completo, index=False)
-    ib.tamanho_coluna(caminho_completo)
     ib.enviar_arquivo(resultado_tabela, caminho_completo, botmessage)
 
 
@@ -147,10 +143,8 @@ def receber_mensagem(mensagem, botmessage, infos: dict, info_receber: str):
             dados = td.tratamento()
             tabela = ib.verifica_atendentes(ib.contrato_elegivel(dados, True), infos['taxa_margem'], infos['taxa_port'])
             resultado_tabela = ib.comissao_atendente(tabela, ib.cumprimento_metas(dados, infos['meta_margem'], infos['meta_port']))
-            ib.salvar_dataframe_csv(resultado_tabela, 'Comissao_Atendentes.csv')
+            ib.salvar_dataframe_csv(resultado_tabela, 'Comissao_Atendentes.xlsx')
             caminho_completo = os.path.join('data', 'Comissao_Atendentes.xlsx')
-            resultado_tabela.to_excel(caminho_completo, index=False)
-            ib.tamanho_coluna(caminho_completo)
             ib.enviar_arquivo(resultado_tabela, caminho_completo, botmessage)
 
 

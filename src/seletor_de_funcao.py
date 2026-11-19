@@ -3,6 +3,8 @@
 # Integrar no Telegram.
 
 import dspy
+import os
+from faster_whisper import WhisperModel
 from config import lm_config
 from Integracao_Botoes import (
     Contratos_elegiveis,
@@ -69,6 +71,27 @@ def processar_mensagem(mensagem: str, message):
         return "Não entendi sua mensagem."
 
     return None
+
+
+def processar_mensagem_audio(file_path):
+    """Processa o audio e retorna uma string com a fala interpretada pelo Faster-Whisper"""
+
+    model = WhisperModel(
+        "small",
+        device="cpu",
+        compute_type="int8"
+    )
+
+    segments, info = model.transcribe(file_path, language="pt", vad_filter=True, condition_on_previous_text=False)
+
+    text = ''
+
+    for segment in segments:
+        text += segment.text
+
+    os.remove(file_path)
+    
+    return text
 
 # Isso é só teste
 if __name__=="__main__":
