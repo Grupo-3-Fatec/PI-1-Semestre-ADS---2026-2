@@ -12,7 +12,7 @@
 <a href='#done' style="text-decoration: underline">DoD </a>|
 
 ## Desafio <a id='desafio'></a>
-
+Adicionar reconhecimento de voz para executar as funcionalidades anteriormente implementadas.
 
 ## Backlog da Sprint <a id='backlog'></a>
 | RANK | PRIORIDADE | USER STORY | STORY POINTS | SPRINT |
@@ -36,3 +36,4 @@
 - **Código commitado no Git:** Integrado à branch principal via Pull Request.
 - **Aprovado pelo PO:** O PO validou a entrega e concorda que está apropriada para implementação.
 ---
+**Vídeo do Projeto Sprint 3:** https://drive.google.com/file/d/1tnyDNoJX6k2vxucmGJ8dO0AD1GgXwEcq/view
