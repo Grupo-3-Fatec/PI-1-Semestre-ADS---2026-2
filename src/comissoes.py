@@ -80,16 +80,20 @@ def comissao_loja(contratos: pd.DataFrame, taxa_margem_loja: float, taxa_port_lo
     """Retorna uma planilha com os contratos comissionaveis e seus
     valores de comissao da loja. Cada contrato aparece com seu valor de comissao"""
 
-    #ciaçao de duas condiçoes pra contratos do tipo port e margem
-    planilha_port = contratos[contratos['PropostaTipo'] == 'REFIN DA PORTABILIDADE']
-    planilha_margem = contratos[contratos['PropostaTipo'] == 'MARGEM']
-
     #cria duas novas colunas e pra cada uma ela aplica a porcentagem de comissao no valor a ser calculado
-    contratos['ComissãoPort'] = planilha_port['ValorContrato'] * taxa_port_loja
-    contratos['ComissãoMargem'] = planilha_margem['ValorTroco'] * taxa_margem_loja
+    contratos['ComissãoPort'] = contratos['ValorContrato']
+    contratos['ComissãoMargem'] = contratos['ValorTroco']
+
+    contratos.loc[contratos['PropostaTipo'] == 'REFIN DA PORTABILIDADE', 'ComissãoPort'] = contratos['ComissãoPort'] * taxa_port_loja
+    contratos.loc[contratos['PropostaTipo'] == 'MARGEM', 'ComissãoMargem'] = contratos['ComissãoMargem'] * taxa_margem_loja
+
+    contratos['ComissãoMargem'] = contratos['ComissãoMargem'].fillna(0)
+    contratos['ComissãoPort'] = contratos['ComissãoPort'].fillna(0)
 
     return contratos[['Atendente', 'PropostaTipo', 'NumeroProposta', 'ValorContrato', 'ComissãoPort', 'ComissãoMargem']]
 
 if __name__ == "__main__":
     teste = verifica_atendentes(contrato_elegivel(tratamento(), True), 0.0120, 0.0140)
-    print(comissao_atendente(teste, cumprimento_metas(tratamento(), 2000000, 1000000)))
+    dados = verifica_loja(contrato_elegivel(tratamento(), True), 0.016, 0.016)
+    tabela = comissao_loja(dados, 0.016, 0.016)
+    print(tabela.sample(25))
